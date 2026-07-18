@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-head>
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -20,7 +20,6 @@ head>
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* Page background + layout (scrollable) */
     html, body {
       height: 100%;
     }
@@ -55,15 +54,15 @@ head>
       animation: floatUp 8s linear infinite;
       opacity: 0.22;
     }
-    .floater:nth-child(2)  { left: 8%;  animation-delay: 0s;   animation-duration: 9s; }
-    .floater:nth-child(3)  { left: 20%; animation-delay: 1.5s; animation-duration: 7s; }
-    .floater:nth-child(4)  { left: 35%; animation-delay: 3s;   animation-duration: 10s; }
-    .floater:nth-child(5)  { left: 55%; animation-delay: 0.8s; animation-duration: 8s; }
-    .floater:nth-child(6)  { left: 70%; animation-delay: 2s;   animation-duration: 6s; }
-    .floater:nth-child(7)  { left: 85%; animation-delay: 4s;   animation-duration: 9s; }
-    .floater:nth-child(8)  { left: 45%; animation-delay: 5s;   animation-duration: 7s; }
-    .floater:nth-child(9)  { left: 15%; animation-delay: 6s;   animation-duration: 11s; }
-    .floater:nth-child(10) { left: 75%; animation-delay: 2.5s; animation-duration: 8s; }
+    .floater:nth-child(2)  { left:8%;  animation-delay:0s;   animation-duration:9s; }
+    .floater:nth-child(3)  { left:20%; animation-delay:1.5s; animation-duration:7s; }
+    .floater:nth-child(4)  { left:35%; animation-delay:3s;   animation-duration:10s; }
+    .floater:nth-child(5)  { left:55%; animation-delay:0.8s; animation-duration:8s; }
+    .floater:nth-child(6)  { left:70%; animation-delay:2s;   animation-duration:6s; }
+    .floater:nth-child(7)  { left:85%; animation-delay:4s;   animation-duration:9s; }
+    .floater:nth-child(8)  { left:45%; animation-delay:5s;   animation-duration:7s; }
+    .floater:nth-child(9)  { left:15%; animation-delay:6s;   animation-duration:11s; }
+    .floater:nth-child(10) { left:75%; animation-delay:2.5s; animation-duration:8s; }
 
     @keyframes floatUp {
       0%   { transform: translateY(110vh) scale(1);   opacity: 0; }
@@ -83,7 +82,6 @@ head>
       transform-origin: center;
     }
 
-    /* Main content wrapper */
     .content {
       position: relative;
       z-index: 1;
@@ -96,7 +94,6 @@ head>
       margin-bottom: 40px;
     }
 
-    /* Engagement card */
     .card {
       background: linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(100,160,255,0.12) 100%);
       border-radius: 24px;
@@ -178,7 +175,6 @@ head>
       margin: 10px 0;
     }
 
-    /* Simple stacked names (original style) */
     .couple-names {
       font-family: 'Playfair Display', serif;
       font-size: 3.2rem;
@@ -202,7 +198,6 @@ head>
       margin: 10px 0;
     }
 
-    /* Blessing / invite line */
     .cheers-msg {
       font-size: 0.88rem;
       color: #e5e7eb;
@@ -210,7 +205,6 @@ head>
       margin: 10px 0 18px;
     }
 
-    /* Details block directly under blessing line */
     .details-block {
       margin-top: 8px;
       padding-top: 16px;
@@ -286,7 +280,6 @@ head>
       line-height: 1.5;
     }
 
-    /* Small countdown under time */
     .countdown-label-small {
       margin-top: 8px;
       font-size: 0.7rem;
@@ -301,7 +294,6 @@ head>
       margin-top: 2px;
     }
 
-    /* Venue Directions button */
     .venue-directions-btn {
       margin-top: 10px;
       padding: 6px 14px;
@@ -322,7 +314,6 @@ head>
       box-shadow: 0 4px 12px rgba(37,99,235,0.7);
     }
 
-    /* Chief guest strip */
     .chief-guest-strip {
       margin-top: 20px;
       padding: 12px 18px;
@@ -405,7 +396,6 @@ head>
       box-shadow: 0 8px 20px rgba(255, 215, 0, 0.55);
     }
 
-    /* Static corner SVGs */
     svg.corner {
       position: fixed;
       z-index: 0;
@@ -429,15 +419,9 @@ head>
   <!-- Floating Doodles Background -->
   <div class="doodle-bg">
     <!-- Pigeons -->
-    <div class="floater" style="left:8%;font-size:2rem;">
-      <span class="pigeon-wings">🕊️</span>
-    </div>
-    <div class="floater" style="left:72%;font-size:1.6rem;">
-      <span class="pigeon-wings">🕊️</span>
-    </div>
-    <div class="floater" style="left:40%;font-size:2.2rem;">
-      <span class="pigeon-wings">🕊️</span>
-    </div>
+    <div class="floater" style="left:8%;font-size:2rem;"><span class="pigeon-wings">🕊️</span></div>
+    <div class="floater" style="left:72%;font-size:1.6rem;"><span class="pigeon-wings">🕊️</span></div>
+    <div class="floater" style="left:40%;font-size:2.2rem;"><span class="pigeon-wings">🕊️</span></div>
     <!-- Engagement Rings -->
     <div class="floater" style="left:20%;font-size:1.8rem;">💍</div>
     <div class="floater" style="left:60%;font-size:1.4rem;">💍</div>
@@ -450,7 +434,7 @@ head>
     <div class="floater" style="left:78%;font-size:1.2rem;color:#a78bfa;">♥</div>
   </div>
 
-  <!-- Static SVG Doodle rings top corners -->
+  <!-- Corner SVGs -->
   <svg class="corner corner-top-left" width="80" height="50" viewBox="0 0 80 50">
     <circle cx="20" cy="25" r="18" fill="none" stroke="#7c3aed" stroke-width="3"/>
     <circle cx="42" cy="25" r="18" fill="none" stroke="#0ea5e9" stroke-width="3"/>
@@ -459,8 +443,6 @@ head>
     <circle cx="20" cy="25" r="18" fill="none" stroke="#7c3aed" stroke-width="3"/>
     <circle cx="42" cy="25" r="18" fill="none" stroke="#0ea5e9" stroke-width="3"/>
   </svg>
-
-  <!-- Bottom corner flowers -->
   <svg class="corner corner-bottom-left" width="60" height="60" viewBox="0 0 60 60">
     <circle cx="30" cy="30" r="10" fill="#f0abfc"/>
     <circle cx="44" cy="20" r="10" fill="#e879f9"/>
@@ -504,7 +486,6 @@ head>
 
       <div class="heart-small">♥</div>
 
-      <!-- Blessing / invite line -->
       <p class="cheers-msg">
         With hearts full of love and gratitude, we invite you to join us in
         showering your warm wishes and blessings upon the couple as they begin
@@ -512,10 +493,8 @@ head>
         family and big brother Praveen Chand Indupalli.
       </p>
 
-      <!-- Date, time, venue block right under blessing -->
       <div class="details-block">
         <div class="details-row">
-          <!-- Date column -->
           <div class="detail-item">
             <div class="detail-icon">💕</div>
             <div class="detail-date-num">25</div>
@@ -523,7 +502,6 @@ head>
             <div class="detail-date-day">Saturday</div>
           </div>
 
-          <!-- Time + countdown column -->
           <div class="detail-item">
             <div class="detail-icon">🕐</div>
             <div class="detail-time">11:00 AM</div>
@@ -533,7 +511,6 @@ head>
             <div id="countdown" class="countdown-timer-small">Calculating…</div>
           </div>
 
-          <!-- Venue + directions column -->
           <div class="detail-item">
             <div class="detail-icon">📍</div>
             <div class="detail-venue">
@@ -555,7 +532,6 @@ head>
         </div>
       </div>
 
-      <!-- Chief guest strip under details -->
       <div class="chief-guest-strip">
         <p class="chief-guest-intro">
           With the gracious presence of
@@ -585,7 +561,6 @@ head>
   <!-- Countdown Script -->
   <script>
     (function() {
-      // Target date: July 25, 2026 11:00 AM local time
       var countDownDate = new Date("July 25, 2026 11:00:00").getTime();
 
       function updateCountdown() {
@@ -616,6 +591,46 @@ head>
       var intervalId = setInterval(updateCountdown, 1000);
       updateCountdown();
     })();
+  </script>
+
+  <!-- Background music on index page -->
+  <audio id="bgMusic" src="bgm-indupalli.mp3.mpeg" loop></audio>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var audio = document.getElementById('bgMusic');
+      if (!audio) return;
+
+      audio.volume = 0.5;
+
+      function startMusic() {
+        audio.play().catch(function () {});
+        document.removeEventListener('click', startMusic);
+        document.removeEventListener('touchstart', startMusic);
+        document.removeEventListener('scroll', startMusic);
+      }
+
+      audio.play().catch(function (err) {
+        console.log('Autoplay blocked on index, waiting for interaction:', err);
+
+        document.addEventListener('click', startMusic);
+        document.addEventListener('touchstart', startMusic);
+        document.addEventListener('scroll', startMusic);
+      });
+    });
+
+    document.addEventListener('visibilitychange', function () {
+      var audio = document.getElementById('bgMusic');
+      if (!audio) return;
+
+      if (document.hidden) {
+        audio.pause();
+      } else {
+        if (audio.currentTime > 0 && audio.paused) {
+          audio.play().catch(function () {});
+        }
+      }
+    });
   </script>
 </body>
 </html>
