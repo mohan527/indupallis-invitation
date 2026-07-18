@@ -200,6 +200,7 @@
       margin: 10px 0;
     }
 
+    /* Blessing / invite line */
     .cheers-msg {
       font-size: 0.88rem;
       color: #e5e7eb;
@@ -207,69 +208,22 @@
       margin: 10px 0 18px;
     }
 
-    .blessings {
-      font-style: italic;
-      font-size: 0.82rem;
-      color: #bfdbfe;
-      margin-bottom: 4px;
-    }
-
-    .parents {
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: #e5f2ff;
-      line-height: 1.8;
-      margin-bottom: 20px;
-    }
-
-    .chief-guest-box {
-      border: 1.5px solid #facc6b;
-      border-radius: 10px;
-      padding: 14px 20px;
-      margin: 18px 0;
-      position: relative;
-      background: rgba(15,23,42,0.55);
-    }
-
-    .chief-guest-label {
-      font-size: 0.72rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #fde68a;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .chief-guest-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.35rem;
-      color: #e5f2ff;
-      font-weight: 700;
-    }
-
-    .chief-guest-title {
-      font-size: 0.82rem;
-      color: #bfdbfe;
-      margin-top: 3px;
-    }
-
-    /* Details block directly under cheers */
+    /* Details block directly under blessing line */
     .details-block {
-      margin-top: 16px;
+      margin-top: 8px;
       padding-top: 16px;
       border-top: 1px solid rgba(250,204,165,0.4);
     }
 
     .details-row {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: flex-start;
-      margin-top: 10px;
       gap: 10px;
     }
 
     .detail-item {
-      flex: 1;
+      flex: 1; /* equal width columns */
       text-align: center;
       padding: 0 5px;
       color: #e5f2ff;
@@ -336,13 +290,85 @@
       font-size: 0.7rem;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: #bfdbfe; /* light blue */
+      color: #bfdbfe;
     }
 
     .countdown-timer-small {
       font-size: 0.8rem;
-      color: #fde68a; /* pale gold */
+      color: #fde68a;
       margin-top: 2px;
+    }
+
+    /* Venue Directions button */
+    .venue-directions-btn {
+      margin-top: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #38bdf8, #1d4ed8);
+      color: #f9fafb;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.5);
+      transition: all 0.2s;
+    }
+
+    .venue-directions-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37,99,235,0.7);
+    }
+
+    /* New chief guest strip (soft blessed feel) */
+    .chief-guest-strip {
+      margin-top: 20px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: radial-gradient(
+        circle at 50% 0%,
+        rgba(250,250,250,0.25),
+        rgba(15,23,42,0.7)
+      );
+      border: 1px solid rgba(252,211,77,0.5);
+      box-shadow: 0 10px 30px rgba(30,64,175,0.5);
+    }
+
+    .chief-guest-intro {
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #bfdbfe;
+      margin-bottom: 4px;
+    }
+
+    .chief-guest-name-line {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: #fde68a;
+      font-weight: 700;
+    }
+
+    .chief-guest-title-line {
+      font-size: 0.85rem;
+      color: #e5e7eb;
+      margin-top: 2px;
+    }
+
+    .blessings {
+      font-style: italic;
+      font-size: 0.82rem;
+      color: #bfdbfe;
+      margin-top: 18px;
+      margin-bottom: 4px;
+    }
+
+    .parents {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #e5f2ff;
+      line-height: 1.8;
+      margin-bottom: 20px;
     }
 
     .footer-hearts {
@@ -375,27 +401,6 @@
     .back-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(255, 215, 0, 0.55);
-    }
-
-    /* Venue Directions button (small under venue text) */
-    .venue-directions-btn {
-      margin-top: 10px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      background: linear-gradient(135deg, #38bdf8, #1d4ed8);
-      color: #f9fafb;
-      box-shadow: 0 2px 8px rgba(37,99,235,0.5);
-      transition: all 0.2s;
-    }
-
-    .venue-directions-btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37,99,235,0.7);
     }
 
     /* Static corner SVGs */
@@ -497,14 +502,18 @@
 
       <div class="heart-small">♥</div>
 
+      <!-- Blessing / invite line -->
       <p class="cheers-msg">
-        Cheers to the beautiful couple! Here’s to love,<br />
-        laughter, and a future filled with joy.
+        With hearts full of love and gratitude, we invite you to join us in
+        showering your warm wishes and blessings upon the couple as they begin
+        this beautiful journey together — lovingly invited by the Indupalli
+        family and big brother Praveen Chand Indupalli.
       </p>
 
-      <!-- NEW: date, time, venue block right under cheers -->
+      <!-- Date, time, venue block right under blessing -->
       <div class="details-block">
         <div class="details-row">
+          <!-- Date column -->
           <div class="detail-item">
             <div class="detail-icon">💕</div>
             <div class="detail-date-num">25</div>
@@ -512,6 +521,7 @@
             <div class="detail-date-day">Saturday</div>
           </div>
 
+          <!-- Time + countdown column -->
           <div class="detail-item">
             <div class="detail-icon">🕐</div>
             <div class="detail-time">11:00 AM</div>
@@ -521,6 +531,7 @@
             <div id="countdown" class="countdown-timer-small">Calculating…</div>
           </div>
 
+          <!-- Venue + directions column -->
           <div class="detail-item">
             <div class="detail-icon">📍</div>
             <div class="detail-venue">
@@ -542,17 +553,24 @@
         </div>
       </div>
 
+      <!-- Chief guest strip under details -->
+      <div class="chief-guest-strip">
+        <p class="chief-guest-intro">
+          With the gracious presence of
+        </p>
+        <p class="chief-guest-name-line">
+          Rev. P Noel Samuel
+        </p>
+        <p class="chief-guest-title-line">
+          IPC State Secretary
+        </p>
+      </div>
+
       <p class="blessings">With love and blessings,</p>
       <p class="parents">
         Mr. Indupalli Sudheer &amp;<br />
         Mrs Indupalli Jaya Mani
       </p>
-
-      <div class="chief-guest-box">
-        <p class="chief-guest-label">✦✦ Chief Guest ✦✦</p>
-        <p class="chief-guest-name">Rev. P Noel Samuel</p>
-        <p class="chief-guest-title">IPC State Secretary</p>
-      </div>
 
       <div class="footer-hearts">♥ ♥ ♥</div>
     </div>
