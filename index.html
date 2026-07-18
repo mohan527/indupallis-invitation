@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engagement Invitation - Indupallis</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <title>Engagement Invitation - Navya & Raju</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #fdf0e6 0%, #fce4ec 50%, #f3e5f5 100%);
+      background: #f5ede0;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -17,152 +17,264 @@
       padding: 20px;
     }
     .card {
-      background: rgba(255,255,255,0.92);
-      border-radius: 20px;
-      max-width: 600px;
+      background: linear-gradient(160deg, #fdf6ec 0%, #faebd7 100%);
+      border-radius: 24px;
+      max-width: 520px;
       width: 100%;
-      padding: 50px 40px;
+      padding: 45px 38px 40px;
       text-align: center;
-      box-shadow: 0 20px 60px rgba(180,80,120,0.15);
-      border: 2px solid rgba(200,100,130,0.2);
+      box-shadow: 0 25px 70px rgba(120,80,30,0.18);
+      border: 1.5px solid #d4a96a;
       position: relative;
-      overflow: hidden;
     }
-    .card::before {
-      content: '';
+    .arch {
       position: absolute;
-      top: -40px; left: -40px;
-      width: 120px; height: 120px;
-      background: radial-gradient(circle, #f8bbd0 0%, transparent 70%);
-      border-radius: 50%;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 180px;
+      border: 1.5px solid #c9a05a;
+      border-bottom: none;
+      border-radius: 130px 130px 0 0;
+      pointer-events: none;
+      opacity: 0.5;
     }
-    .card::after {
-      content: '';
-      position: absolute;
-      bottom: -40px; right: -40px;
-      width: 120px; height: 120px;
-      background: radial-gradient(circle, #e1bee7 0%, transparent 70%);
-      border-radius: 50%;
-    }
-    .flower { font-size: 2rem; margin-bottom: 10px; }
-    .invite-label {
-      font-size: 0.85rem;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #c2185b;
+    .cross {
+      font-size: 1.5rem;
+      color: #8b6320;
       margin-bottom: 10px;
-      font-weight: 600;
+      margin-top: 5px;
     }
-    .couple-names {
-      font-family: 'Great Vibes', cursive;
-      font-size: 3.5rem;
-      color: #880e4f;
-      line-height: 1.2;
-      margin: 20px 0;
+    .bible-quote {
+      font-style: italic;
+      font-size: 0.8rem;
+      color: #7a5c2e;
+      line-height: 1.6;
+      margin-bottom: 18px;
     }
-    .amp {
-      font-size: 2.5rem;
-      color: #e91e8c;
-      display: block;
+    .divider-heart {
+      color: #b8822a;
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      margin: 8px 0;
     }
-    .divider {
-      width: 80px;
-      height: 2px;
-      background: linear-gradient(to right, #f48fb1, #ce93d8);
-      margin: 20px auto;
-      border-radius: 2px;
-    }
-    .message {
-      font-size: 0.95rem;
-      color: #6d4c6d;
-      line-height: 1.8;
-      margin: 20px 0;
-      font-weight: 300;
-    }
-    .event-box {
-      background: linear-gradient(135deg, #fce4ec, #f3e5f5);
-      border-radius: 14px;
-      padding: 25px 20px;
-      margin: 25px 0;
-      border: 1px solid #f48fb1;
-    }
-    .event-title {
-      font-size: 0.75rem;
+    .please-join {
+      font-size: 0.78rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: #ad1457;
-      font-weight: 600;
-      margin-bottom: 8px;
+      color: #6b4c1e;
+      margin-bottom: 6px;
     }
-    .event-date {
+    .engagement-title {
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      color: #8b6320;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .celebration {
       font-family: 'Great Vibes', cursive;
-      font-size: 2.2rem;
-      color: #880e4f;
+      font-size: 2.4rem;
+      color: #5a3e0a;
+      line-height: 1;
     }
-    .event-time, .event-venue {
+    .leaf-divider {
       font-size: 0.9rem;
-      color: #7b5b7b;
-      margin-top: 6px;
+      color: #b8822a;
+      margin: 10px 0;
     }
-    .event-venue { font-weight: 600; }
-    .family-section {
-      margin: 25px 0;
+    .couple-names {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      color: #3b1f05;
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 14px 0 5px;
+    }
+    .amp {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #8b6320;
+      display: block;
+      margin: 4px 0;
+    }
+    .heart-small { color: #8b6320; font-size: 1rem; margin: 10px 0; }
+    .cheers-msg {
       font-size: 0.88rem;
-      color: #7b5b7b;
-      line-height: 2;
+      color: #5a3e0a;
+      line-height: 1.7;
+      margin: 10px 0 18px;
     }
-    .family-section strong { color: #880e4f; font-weight: 600; }
-    .footer {
-      margin-top: 30px;
+    .blessings {
+      font-style: italic;
+      font-size: 0.82rem;
+      color: #7a5c2e;
+      margin-bottom: 4px;
+    }
+    .parents {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #3b1f05;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .chief-guest-box {
+      border: 1.5px solid #c9a05a;
+      border-radius: 10px;
+      padding: 14px 20px;
+      margin: 18px 0;
+      position: relative;
+    }
+    .chief-guest-label {
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #8b6320;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .chief-guest-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: #3b1f05;
+      font-weight: 700;
+    }
+    .chief-guest-title {
+      font-size: 0.82rem;
+      color: #6b4c1e;
+      margin-top: 3px;
+    }
+    .details-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      margin-top: 24px;
+      gap: 10px;
+    }
+    .detail-item {
+      flex: 1;
+      text-align: center;
+      padding: 0 5px;
+    }
+    .detail-item + .detail-item {
+      border-left: 1px solid #d4a96a;
+    }
+    .detail-icon { font-size: 1.4rem; margin-bottom: 6px; color: #8b6320; }
+    .detail-date-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #3b1f05;
+      line-height: 1;
+    }
+    .detail-date-month {
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #6b4c1e;
+      font-weight: 600;
+    }
+    .detail-date-day {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #8b6320;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    .detail-time {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #3b1f05;
+    }
+    .detail-time-line {
+      width: 30px;
+      height: 1px;
+      background: #c9a05a;
+      margin: 6px auto;
+    }
+    .detail-venue {
       font-size: 0.8rem;
-      color: #b07090;
-      letter-spacing: 1px;
+      color: #3b1f05;
+      font-weight: 500;
+      line-height: 1.5;
     }
-    .rings { font-size: 2rem; margin: 15px 0; }
+    .footer-hearts {
+      margin-top: 22px;
+      color: #b8822a;
+      font-size: 0.9rem;
+      letter-spacing: 4px;
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="flower">🌸 🌺 🌸</div>
-    <p class="invite-label">With Blessings & Joy</p>
-    <p style="font-size:0.9rem;color:#9e6b8a;margin-bottom:5px;">We joyfully invite you to celebrate the</p>
-    <h2 style="font-size:1.4rem;color:#880e4f;letter-spacing:2px;font-weight:600;text-transform:uppercase;">Engagement Ceremony</h2>
+    <div class="arch"></div>
 
-    <div class="divider"></div>
+    <div class="cross">&#10013;</div>
 
-    <div class="couple-names">
-      Groom Name
-      <span class="amp">&</span>
-      Bride Name
-    </div>
-
-    <div class="rings">💍</div>
-
-    <p class="message">
-      Two hearts, one promise.<br />
-      Please join us as we celebrate the beautiful union of our beloved.
+    <p class="bible-quote">
+      &ldquo;Let all that you do be done in love.&rdquo;<br />
+      &ndash; 1 Corinthians 16:14
     </p>
 
-    <div class="event-box">
-      <p class="event-title">Engagement Ceremony</p>
-      <p class="event-date">Sunday, 26th July 2026</p>
-      <p class="event-time">🕙 10:00 AM onwards</p>
-      <p class="event-venue">📍 Venue Name, Hyderabad</p>
+    <div class="divider-heart">&#10022; &hearts; &#10022;</div>
+
+    <p class="please-join">Please Join Us For An</p>
+    <h1 class="engagement-title">Engagement</h1>
+    <p class="celebration">Celebration&#9825;</p>
+
+    <div class="leaf-divider">&#10048;&#10048;&#10048;</div>
+
+    <div class="couple-names">
+      Navya
+      <span class="amp">&amp;</span>
+      Raju
     </div>
 
-    <div class="family-section">
-      <strong>Son of:</strong><br />
-      Sri. Father Name &amp; Smt. Mother Name<br /><br />
-      <strong>Daughter of:</strong><br />
-      Sri. Father Name &amp; Smt. Mother Name
+    <div class="heart-small">&hearts;</div>
+
+    <p class="cheers-msg">
+      Cheers to the beautiful couple! Here&rsquo;s to love,<br />
+      laughter, and a future filled with joy.
+    </p>
+
+    <p class="blessings">With love and blessings,</p>
+    <p class="parents">
+      Mr. Indupalli Sudheer &amp;<br />
+      Mrs Indupalli Jaya Mani
+    </p>
+
+    <div class="chief-guest-box">
+      <p class="chief-guest-label">&#10022;&#10022; Chief Guest &#10022;&#10022;</p>
+      <p class="chief-guest-name">Rev. P Noel Samuel</p>
+      <p class="chief-guest-title">IPC State Secretary</p>
     </div>
 
-    <div class="divider"></div>
+    <div class="details-row">
+      <div class="detail-item">
+        <div class="detail-icon">&#128149;</div>
+        <div class="detail-date-num">25</div>
+        <div class="detail-date-month">July<br />2026</div>
+        <div class="detail-date-day">Saturday</div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon">&#128336;</div>
+        <div class="detail-time">11:00 AM</div>
+        <div class="detail-time-line"></div>
+      </div>
+      <div class="detail-item">
+        <div class="detail-icon">&#128205;</div>
+        <div class="detail-venue">
+          Swarna Convention,<br />
+          Gurunanak Colony,<br />
+          Vijayawada
+        </div>
+      </div>
+    </div>
 
-    <p class="message">Your presence and blessings will make this moment truly special.</p>
-
-    <div class="flower">🌹 🌼 🌹</div>
-    <p class="footer">#IndupalliEngagement2026</p>
+    <div class="footer-hearts">&hearts; &hearts; &hearts;</div>
   </div>
 </body>
 </html>
