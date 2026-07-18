@@ -2,34 +2,111 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Engagement Invitation - Navya & Raju</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Engagement Invitation - Navya &amp; Raju</title>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Page background + layout (from splash screen) */
     body {
       font-family: 'Poppins', sans-serif;
-      background: #f5ede0;
+      background: linear-gradient(160deg, #dff6ff 0%, #e8d5f5 50%, #c8e8ff 100%);
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      text-align: center;
       padding: 20px;
+      position: relative;
+      overflow: hidden;
     }
+
+    /* Floating doodles animation */
+    .doodle-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .floater {
+      position: absolute;
+      animation: floatUp 8s linear infinite;
+      opacity: 0.22;
+    }
+    .floater:nth-child(2)  { left: 8%;  animation-delay: 0s;   animation-duration: 9s; }
+    .floater:nth-child(3)  { left: 20%; animation-delay: 1.5s; animation-duration: 7s; }
+    .floater:nth-child(4)  { left: 35%; animation-delay: 3s;   animation-duration: 10s; }
+    .floater:nth-child(5)  { left: 55%; animation-delay: 0.8s; animation-duration: 8s; }
+    .floater:nth-child(6)  { left: 70%; animation-delay: 2s;   animation-duration: 6s; }
+    .floater:nth-child(7)  { left: 85%; animation-delay: 4s;   animation-duration: 9s; }
+    .floater:nth-child(8)  { left: 45%; animation-delay: 5s;   animation-duration: 7s; }
+    .floater:nth-child(9)  { left: 15%; animation-delay: 6s;   animation-duration: 11s; }
+    .floater:nth-child(10) { left: 75%; animation-delay: 2.5s; animation-duration: 8s; }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(110vh) scale(1);   opacity: 0; }
+      10%  { opacity: 0.22; }
+      90%  { opacity: 0.22; }
+      100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
+    }
+
+    /* Pigeon flap animation */
+    @keyframes flapWings {
+      0%, 100% { transform: scaleY(1); }
+      50%      { transform: scaleY(0.6); }
+    }
+    .pigeon-wings {
+      display: inline-block;
+      animation: flapWings 0.6s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    /* Main content wrapper so card sits above doodles */
+    .content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 560px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Engagement card (your original styles, slightly tweaked) */
     .card {
       background: linear-gradient(160deg, #fdf6ec 0%, #faebd7 100%);
       border-radius: 24px;
       max-width: 520px;
       width: 100%;
-      padding: 45px 38px 40px;
+      padding: 45px 38px 30px;
       text-align: center;
-      box-shadow: 0 25px 70px rgba(120,80,30,0.18);
+      box-shadow: 0 25px 70px rgba(120, 80, 30, 0.18);
       border: 1.5px solid #d4a96a;
       position: relative;
+      margin-bottom: 16px;
     }
     .arch {
       position: absolute;
-      top: 0; left: 50%;
+      top: 0;
+      left: 50%;
       transform: translateX(-50%);
       width: 260px;
       height: 180px;
@@ -86,7 +163,7 @@
     }
     .couple-names {
       font-family: 'Playfair Display', serif;
-      font-size: 3.8rem;
+      font-size: 3.2rem;
       color: #3b1f05;
       font-weight: 700;
       line-height: 1.15;
@@ -99,7 +176,11 @@
       display: block;
       margin: 4px 0;
     }
-    .heart-small { color: #8b6320; font-size: 1rem; margin: 10px 0; }
+    .heart-small {
+      color: #8b6320;
+      font-size: 1rem;
+      margin: 10px 0;
+    }
     .cheers-msg {
       font-size: 0.88rem;
       color: #5a3e0a;
@@ -160,7 +241,11 @@
     .detail-item + .detail-item {
       border-left: 1px solid #d4a96a;
     }
-    .detail-icon { font-size: 1.4rem; margin-bottom: 6px; color: #8b6320; }
+    .detail-icon {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+      color: #8b6320;
+    }
     .detail-date-num {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
@@ -206,78 +291,50 @@
       font-size: 0.9rem;
       letter-spacing: 4px;
     }
+
+    /* Back button */
+    .back-wrap {
+      text-align: center;
+      margin-top: 8px;
+    }
+    .back-btn {
+      display: inline-block;
+      padding: 12px 35px;
+      background: linear-gradient(135deg, #ffd700, #ffb300);
+      color: #1a0a00;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+      transition: all 0.3s;
+    }
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.55);
+    }
+
+    /* Static corner SVGs from splash */
+    svg.corner {
+      position: fixed;
+      z-index: 0;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    svg.corner-top-left  { top: 10px;  left: 10px; }
+    svg.corner-top-right { top: 10px;  right: 10px; transform: scaleX(-1); }
+    svg.corner-bottom-left  { bottom: 10px; left: 10px; }
+    svg.corner-bottom-right { bottom: 10px; right: 10px; }
+    
+    @media (max-width: 480px) {
+      .couple-names {
+        font-size: 2.6rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="arch"></div>
 
-    <div class="cross">&#10013;</div>
-
-    <p class="bible-quote">
-      &ldquo;Let all that you do be done in love.&rdquo;<br />
-      &ndash; 1 Corinthians 16:14
-    </p>
-
-    <div class="divider-heart">&#10022; &hearts; &#10022;</div>
-
-    <p class="please-join">Please Join Us For An</p>
-    <h1 class="engagement-title">Engagement</h1>
-    <p class="celebration">Celebration&#9825;</p>
-
-    <div class="leaf-divider">&#10048;&#10048;&#10048;</div>
-
-    <div class="couple-names">
-      Navya
-      <span class="amp">&amp;</span>
-      Raju
-    </div>
-
-    <div class="heart-small">&hearts;</div>
-
-    <p class="cheers-msg">
-      Cheers to the beautiful couple! Here&rsquo;s to love,<br />
-      laughter, and a future filled with joy.
-    </p>
-
-    <p class="blessings">With love and blessings,</p>
-    <p class="parents">
-      Mr. Indupalli Sudheer &amp;<br />
-      Mrs Indupalli Jaya Mani
-    </p>
-
-    <div class="chief-guest-box">
-      <p class="chief-guest-label">&#10022;&#10022; Chief Guest &#10022;&#10022;</p>
-      <p class="chief-guest-name">Rev. P Noel Samuel</p>
-      <p class="chief-guest-title">IPC State Secretary</p>
-    </div>
-
-    <div class="details-row">
-      <div class="detail-item">
-        <div class="detail-icon">&#128149;</div>
-        <div class="detail-date-num">25</div>
-        <div class="detail-date-month">July<br />2026</div>
-        <div class="detail-date-day">Saturday</div>
-      </div>
-      <div class="detail-item">
-        <div class="detail-icon">&#128336;</div>
-        <div class="detail-time">11:00 AM</div>
-        <div class="detail-time-line"></div>
-      </div>
-      <div class="detail-item">
-        <div class="detail-icon">&#128205;</div>
-        <div class="detail-venue">
-          Swarna Convention,<br />
-          Gurunanak Colony,<br />
-          Vijayawada
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-hearts">&hearts; &hearts; &hearts;</div>
-  </div>
-    <div style="text-align:center; padding: 20px 0 10px;">
-    <a href="main page.html" style="display:inline-block; padding:12px 35px; background:linear-gradient(135deg,#ffd700,#ffb300); color:#1a0a00; font-family:'Georgia',serif; font-size:1rem; font-weight:bold; border-radius:50px; text-decoration:none; letter-spacing:1px; box-shadow:0 4px 15px rgba(255,215,0,0.4); transition:all 0.3s;">&#8592; Back to Main Page</a>
-  </div>
-</body>
-</html>
+  <!-- Floating Doodles 
