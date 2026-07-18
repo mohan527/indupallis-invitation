@@ -29,6 +29,29 @@
       margin-top: 10px;
       letter-spacing: 2px;
     }
+    .invite-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 16px 45px;
+      background: linear-gradient(135deg, #ffd700, #ffb300);
+      color: #1a0a00;
+      font-size: 1.2rem;
+      font-weight: bold;
+      font-family: 'Georgia', serif;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      letter-spacing: 2px;
+      box-shadow: 0 6px 25px rgba(255,215,0,0.5);
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+    .invite-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 12px 35px rgba(255,215,0,0.7);
+      background: linear-gradient(135deg, #ffe44d, #ffd700);
+    }
+    .invite-btn:active { transform: scale(0.97); }
     .divider {
       text-align: center;
       font-size: 2rem;
@@ -107,6 +130,7 @@
     <div style="font-size:3rem;">💍</div>
     <h1>Indupallis Invitation</h1>
     <p>Welcome to our celebration portal</p>
+    <a href="index.html" class="invite-btn">Indupallis Invitation</a>
   </header>
 
   <div class="divider">✦ ✦ ✦</div>
