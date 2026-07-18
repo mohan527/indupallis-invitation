@@ -7,62 +7,41 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>Engagement Invitation - Navya &amp; Raju</title>
+  <title>Indupallis Invitation & Engagement</title>
 
-  <!-- Fonts -->
+  <!-- Fonts for engagement page -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    html, body {
-      height: 100%;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+    html, body { height: 100%; }
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 40%, #1a1a4e 100%);
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      text-align: center;
-      padding: 20px;
-      position: relative;
-      overflow-x: hidden;
+      background: linear-gradient(160deg, #dff6ff 0%, #e8d5f5 50%, #c8e8ff 100%);
+      min-height: 100vh; min-height: 100dvh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 20px;
+      position: relative; overflow: hidden;
     }
 
-    /* Floating doodles animation */
-    .doodle-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
+    /* Floating doodles animation (common) */
+    .doodle-bg { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
     .floater {
       position: absolute;
       animation: floatUp 8s linear infinite;
       opacity: 0.22;
     }
-    .floater:nth-child(2)  { left:8%;  animation-delay:0s;   animation-duration:9s; }
-    .floater:nth-child(3)  { left:20%; animation-delay:1.5s; animation-duration:7s; }
-    .floater:nth-child(4)  { left:35%; animation-delay:3s;   animation-duration:10s; }
-    .floater:nth-child(5)  { left:55%; animation-delay:0.8s; animation-duration:8s; }
-    .floater:nth-child(6)  { left:70%; animation-delay:2s;   animation-duration:6s; }
-    .floater:nth-child(7)  { left:85%; animation-delay:4s;   animation-duration:9s; }
-    .floater:nth-child(8)  { left:45%; animation-delay:5s;   animation-duration:7s; }
-    .floater:nth-child(9)  { left:15%; animation-delay:6s;   animation-duration:11s; }
-    .floater:nth-child(10) { left:75%; animation-delay:2.5s; animation-duration:8s; }
+    .floater:nth-child(2)  { left:8%;  animation-delay:0s;    animation-duration:9s; }
+    .floater:nth-child(3)  { left:20%; animation-delay:1.5s;  animation-duration:7s; }
+    .floater:nth-child(4)  { left:35%; animation-delay:3s;    animation-duration:10s; }
+    .floater:nth-child(5)  { left:55%; animation-delay:0.8s;  animation-duration:8s; }
+    .floater:nth-child(6)  { left:70%; animation-delay:2s;    animation-duration:6s; }
+    .floater:nth-child(7)  { left:85%; animation-delay:4s;    animation-duration:9s; }
+    .floater:nth-child(8)  { left:45%; animation-delay:5s;    animation-duration:7s; }
+    .floater:nth-child(9)  { left:15%; animation-delay:6s;    animation-duration:11s; }
+    .floater:nth-child(10) { left:75%; animation-delay:2.5s;  animation-duration:8s; }
 
     @keyframes floatUp {
       0%   { transform: translateY(110vh) scale(1);   opacity: 0; }
@@ -71,18 +50,27 @@
       100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
     }
 
-    /* Pigeon flap animation */
     @keyframes flapWings {
-      0%, 100% { transform: scaleY(1); }
+      0%,100% { transform: scaleY(1); }
       50%      { transform: scaleY(0.6); }
     }
-    .pigeon-wings {
-      display: inline-block;
-      animation: flapWings 0.6s ease-in-out infinite;
-      transform-origin: center;
-    }
+    .pigeon-wings { display:inline-block; animation: flapWings 0.6s ease-in-out infinite; transform-origin: center; }
 
-    .content {
+    /* Corner SVGs */
+    svg.corner {
+      position: fixed;
+      z-index: 0;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    svg.corner-top-left  { top: 10px;  left: 10px; }
+    svg.corner-top-right { top: 10px;  right: 10px; transform: scaleX(-1); }
+    svg.corner-bottom-left  { bottom: 10px; left: 10px; }
+    svg.corner-bottom-right { bottom: 10px; right: 10px; }
+
+    /* Two screens */
+    .screen-main,
+    .screen-invite {
       position: relative;
       z-index: 1;
       width: 100%;
@@ -90,10 +78,90 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-top: 20px;
-      margin-bottom: 40px;
     }
 
+    .screen-main {
+      justify-content: center;
+      min-height: 100vh;
+      display: flex; /* visible at start */
+    }
+
+    .screen-invite {
+      justify-content: flex-start;
+      min-height: 100vh;
+      display: none; /* hidden at start, shown later */
+    }
+
+    /* Main page styles */
+    .tagline-top {
+      font-size: clamp(0.8rem, 3.5vw, 1rem);
+      color: #7c3aed;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 4px;
+    }
+
+    .main-title {
+      font-family: 'Georgia', serif;
+      font-size: clamp(1.6rem, 6.5vw, 2.8rem);
+      color: #5b3a8a;
+      letter-spacing: 2px;
+      text-shadow: 1px 1px 10px rgba(150,100,220,0.2);
+      line-height: 1.3;
+      padding: 0 10px;
+      margin-bottom: 6px;
+      text-align: center;
+    }
+
+    .rings-doodle {
+      font-size: clamp(1.6rem, 6vw, 2.2rem);
+      margin: 8px 0;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.12);} }
+
+    .invite-btn {
+      display: inline-block;
+      width: 90%; max-width: 300px;
+      padding: 17px 30px;
+      background: linear-gradient(135deg, #a78bfa, #7dd3fc);
+      color: #fff;
+      font-size: clamp(1rem, 4.5vw, 1.15rem);
+      font-weight: bold; font-family:'Georgia',serif;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 1.5px;
+      box-shadow: 0 6px 25px rgba(139,92,246,0.35);
+      border: 2px solid rgba(255,255,255,0.5);
+      touch-action: manipulation; cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 10px;
+    }
+    .invite-btn:active { transform:scale(0.96); }
+    @media (hover:hover) {
+      .invite-btn:hover { transform:translateY(-4px) scale(1.03); box-shadow:0 12px 35px rgba(139,92,246,0.5); }
+    }
+
+    .tagline-bottom {
+      font-size: clamp(0.75rem, 3vw, 0.9rem);
+      color: #6b7280;
+      letter-spacing: 2px;
+      margin-top: 14px;
+      font-style: italic;
+      opacity: 0.85;
+    }
+
+    .bells {
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
+      margin-top: 6px;
+      animation: swing 1.4s ease-in-out infinite;
+      display:inline-block;
+      transform-origin: top center;
+    }
+    @keyframes swing { 0%,100%{transform:rotate(-12deg);} 50%{transform:rotate(12deg);} }
+
+    /* Engagement card styles */
     .card {
       background: linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(100,160,255,0.12) 100%);
       border-radius: 24px;
@@ -389,23 +457,13 @@
       letter-spacing: 1px;
       box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
       transition: all 0.3s;
+      cursor: pointer;
     }
 
     .back-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(255, 215, 0, 0.55);
     }
-
-    svg.corner {
-      position: fixed;
-      z-index: 0;
-      opacity: 0.18;
-      pointer-events: none;
-    }
-    svg.corner-top-left  { top: 10px;  left: 10px; }
-    svg.corner-top-right { top: 10px;  right: 10px; transform: scaleX(-1); }
-    svg.corner-bottom-left  { bottom: 10px; left: 10px; }
-    svg.corner-bottom-right { bottom: 10px; right: 10px; }
 
     @media (max-width: 480px) {
       .couple-names {
@@ -416,16 +474,16 @@
 </head>
 <body>
 
-  <!-- Floating Doodles Background -->
+  <!-- Floating doodles -->
   <div class="doodle-bg">
     <!-- Pigeons -->
     <div class="floater" style="left:8%;font-size:2rem;"><span class="pigeon-wings">🕊️</span></div>
     <div class="floater" style="left:72%;font-size:1.6rem;"><span class="pigeon-wings">🕊️</span></div>
     <div class="floater" style="left:40%;font-size:2.2rem;"><span class="pigeon-wings">🕊️</span></div>
-    <!-- Engagement Rings -->
+    <!-- Rings -->
     <div class="floater" style="left:20%;font-size:1.8rem;">💍</div>
     <div class="floater" style="left:60%;font-size:1.4rem;">💍</div>
-    <!-- Church Bells -->
+    <!-- Bells -->
     <div class="floater" style="left:85%;font-size:1.8rem;">🔔</div>
     <div class="floater" style="left:30%;font-size:1.5rem;">🔔</div>
     <!-- Hearts -->
@@ -460,8 +518,18 @@
     <circle cx="30" cy="30" r="7" fill="#fde68a"/>
   </svg>
 
-  <!-- Main Content -->
-  <div class="content">
+  <!-- Screen 1: Main Invitation -->
+  <div class="screen-main" id="screen-main">
+    <p class="tagline-top">✦ You Are Cordially Invited ✦</p>
+    <h1 class="main-title">Indupallis<br/>Invitation</h1>
+    <div class="rings-doodle">💍 💍</div>
+    <button class="invite-btn" id="openInviteBtn">💌 Open Invitation</button>
+    <div class="bells">🔔 🔔</div>
+    <p class="tagline-bottom">A celebration of love &amp; new beginnings</p>
+  </div>
+
+  <!-- Screen 2: Engagement Invitation Card -->
+  <div class="screen-invite" id="screen-invite">
     <div class="card">
       <div class="arch"></div>
       <div class="cross">✝</div>
@@ -554,7 +622,7 @@
     </div>
 
     <div class="back-wrap">
-      <a href="main page.html" class="back-btn">← Back to Main Page</a>
+      <button class="back-btn" id="backMainBtn">← Back to Main Page</button>
     </div>
   </div>
 
@@ -593,12 +661,17 @@
     })();
   </script>
 
-  <!-- Background music on index page -->
+  <!-- Background music (continuous) -->
   <audio id="bgMusic" src="bgm-indupalli.mp3.mpeg" loop></audio>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      var mainScreen = document.getElementById('screen-main');
+      var inviteScreen = document.getElementById('screen-invite');
+      var openBtn = document.getElementById('openInviteBtn');
+      var backBtn = document.getElementById('backMainBtn');
       var audio = document.getElementById('bgMusic');
+
       if (!audio) return;
 
       audio.volume = 0.5;
@@ -610,13 +683,27 @@
         document.removeEventListener('scroll', startMusic);
       }
 
+      // Try autoplay
       audio.play().catch(function (err) {
-        console.log('Autoplay blocked on index, waiting for interaction:', err);
-
+        console.log('Autoplay blocked, waiting for interaction:', err);
         document.addEventListener('click', startMusic);
         document.addEventListener('touchstart', startMusic);
         document.addEventListener('scroll', startMusic);
       });
+
+      if (openBtn) {
+        openBtn.addEventListener('click', function () {
+          mainScreen.style.display = 'none';
+          inviteScreen.style.display = 'flex';
+        });
+      }
+
+      if (backBtn) {
+        backBtn.addEventListener('click', function () {
+          inviteScreen.style.display = 'none';
+          mainScreen.style.display = 'flex';
+        });
+      }
     });
 
     document.addEventListener('visibilitychange', function () {
