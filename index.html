@@ -330,7 +330,7 @@
       letter-spacing: 4px;
     }
 
-    /* Countdown + Maps + Back section */
+    /* Countdown + Back section */
     .extras {
       margin-top: 20px;
       display: flex;
@@ -351,32 +351,6 @@
       font-size: 1.3rem;
       color: #fde68a;
       margin-top: 4px;
-    }
-
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
-
-    .primary-btn {
-      display: inline-block;
-      padding: 10px 26px;
-      background: linear-gradient(135deg, #38bdf8, #1d4ed8);
-      color: #f9fafb;
-      font-size: 0.9rem;
-      font-weight: 600;
-      border-radius: 999px;
-      text-decoration: none;
-      letter-spacing: 1px;
-      box-shadow: 0 4px 15px rgba(37,99,235,0.5);
-      transition: all 0.3s;
-    }
-
-    .primary-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(37,99,235,0.7);
     }
 
     .back-wrap {
@@ -402,6 +376,27 @@
     .back-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(255, 215, 0, 0.55);
+    }
+
+    /* Venue Directions button (small under venue text) */
+    .venue-directions-btn {
+      margin-top: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #38bdf8, #1d4ed8);
+      color: #f9fafb;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.5);
+      transition: all 0.2s;
+    }
+
+    .venue-directions-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37,99,235,0.7);
     }
 
     /* Static corner SVGs */
@@ -539,27 +534,26 @@
             Gurunanak Colony,<br />
             Vijayawada
           </div>
+          <button
+            type="button"
+            onclick="window.open(
+              'https://www.google.com/maps/dir/?api=1&destination=Swarnas+Convention,+Guru+Nanak+Colony,+Vijayawada,+Andhra+Pradesh+520010',
+              '_blank'
+            );"
+            class="venue-directions-btn"
+          >
+            Directions
+          </button>
         </div>
       </div>
 
       <div class="footer-hearts">♥ ♥ ♥</div>
 
-      <!-- Countdown + Maps + Back -->
+      <!-- Countdown -->
       <div class="extras">
         <div>
           <div class="countdown-label">Time until engagement</div>
           <div id="countdown" class="countdown-timer">Calculating…</div>
-        </div>
-
-        <div class="btn-row">
-          <a
-            href="https://www.google.com/maps?q=Swarnas+Convention,+Guru+Nanak+Colony,+Vijayawada,+Andhra+Pradesh+520010"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="primary-btn"
-          >
-            Open in Google Maps
-          </a>
         </div>
       </div>
     </div>
