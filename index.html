@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -20,20 +20,24 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* Page background + layout (from splash screen) */
+    /* Page background + layout (scrollable) */
+    html, body {
+      height: 100%;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
-            background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 40%, #1a1a4e 100%);
+      background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 40%, #1a1a4e 100%);
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       text-align: center;
       padding: 20px;
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden; /* allow vertical scroll */
     }
 
     /* Floating doodles animation */
@@ -88,21 +92,25 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-top: 20px;
+      margin-bottom: 40px;
     }
 
-    /* Engagement card (your original styles, slightly tweaked) */
+    /* Engagement card */
     .card {
-            background: linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(100,160,255,0.12) 100%);
+      background: linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(100,160,255,0.12) 100%);
       border-radius: 24px;
       max-width: 520px;
       width: 100%;
       padding: 45px 38px 30px;
       text-align: center;
-            box-shadow: 0 25px 70px rgba(30,58,138,0.4);
-            border: 1.5px solid rgba(125,211,252,0.3);
+      box-shadow: 0 25px 70px rgba(30,58,138,0.4);
+      border: 1.5px solid rgba(125,211,252,0.3);
       position: relative;
       margin-bottom: 16px;
+      color: #e5f2ff; /* soft light text overall */
     }
+
     .arch {
       position: absolute;
       top: 0;
@@ -110,122 +118,141 @@
       transform: translateX(-50%);
       width: 260px;
       height: 180px;
-      border: 1.5px solid #c9a05a;
+      border: 1.5px solid #facc6b; /* warm gold */
       border-bottom: none;
       border-radius: 130px 130px 0 0;
       pointer-events: none;
-      opacity: 0.5;
+      opacity: 0.6;
     }
+
     .cross {
       font-size: 1.5rem;
-      color: #8b6320;
+      color: #fbbf24; /* gold */
       margin-bottom: 10px;
       margin-top: 5px;
     }
+
     .bible-quote {
       font-style: italic;
       font-size: 0.8rem;
-      color: #7a5c2e;
+      color: #e5e7eb; /* soft white */
       line-height: 1.6;
       margin-bottom: 18px;
     }
+
     .divider-heart {
-      color: #b8822a;
+      color: #facc6b; /* gold */
       font-size: 0.85rem;
       letter-spacing: 3px;
       margin: 8px 0;
     }
+
     .please-join {
       font-size: 0.78rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: #6b4c1e;
+      color: #bfdbfe; /* light blue */
       margin-bottom: 6px;
     }
+
     .engagement-title {
       font-size: 2rem;
       font-family: 'Playfair Display', serif;
-      color: #8b6320;
+      color: #fde68a; /* pale gold */
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
     }
+
     .celebration {
       font-family: 'Great Vibes', cursive;
       font-size: 2.4rem;
-      color: #5a3e0a;
+      color: #e0f2fe; /* very light blue */
       line-height: 1;
     }
+
     .leaf-divider {
       font-size: 0.9rem;
-      color: #b8822a;
+      color: #facc6b;
       margin: 10px 0;
     }
+
     .couple-names {
       font-family: 'Playfair Display', serif;
       font-size: 3.2rem;
-      color: #3b1f05;
+      color: #f9fafb; /* near white */
       font-weight: 700;
       line-height: 1.15;
       margin: 14px 0 5px;
     }
+
     .amp {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
-      color: #8b6320;
+      color: #facc6b;
       display: block;
       margin: 4px 0;
     }
+
     .heart-small {
-      color: #8b6320;
+      color: #fbbf24;
       font-size: 1rem;
       margin: 10px 0;
     }
+
     .cheers-msg {
       font-size: 0.88rem;
-      color: #5a3e0a;
+      color: #e5e7eb;
       line-height: 1.7;
       margin: 10px 0 18px;
     }
+
     .blessings {
       font-style: italic;
       font-size: 0.82rem;
-      color: #7a5c2e;
+      color: #bfdbfe;
       margin-bottom: 4px;
     }
+
     .parents {
       font-size: 0.92rem;
       font-weight: 600;
-      color: #3b1f05;
+      color: #e5f2ff;
       line-height: 1.8;
       margin-bottom: 20px;
     }
+
     .chief-guest-box {
-      border: 1.5px solid #c9a05a;
+      border: 1.5px solid #facc6b;
       border-radius: 10px;
       padding: 14px 20px;
       margin: 18px 0;
       position: relative;
+      background: rgba(15,23,42,0.55);
     }
+
     .chief-guest-label {
       font-size: 0.72rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: #8b6320;
+      color: #fde68a;
       font-weight: 600;
       margin-bottom: 6px;
     }
+
     .chief-guest-name {
       font-family: 'Playfair Display', serif;
       font-size: 1.35rem;
-      color: #3b1f05;
+      color: #e5f2ff;
       font-weight: 700;
     }
+
     .chief-guest-title {
       font-size: 0.82rem;
-      color: #6b4c1e;
+      color: #bfdbfe;
       margin-top: 3px;
     }
+
     .details-row {
       display: flex;
       justify-content: space-around;
@@ -233,70 +260,130 @@
       margin-top: 24px;
       gap: 10px;
     }
+
     .detail-item {
       flex: 1;
       text-align: center;
       padding: 0 5px;
+      color: #e5f2ff;
     }
+
     .detail-item + .detail-item {
-      border-left: 1px solid #d4a96a;
+      border-left: 1px solid rgba(250,204,165,0.45);
     }
+
     .detail-icon {
       font-size: 1.4rem;
       margin-bottom: 6px;
-      color: #8b6320;
+      color: #fbbf24;
     }
+
     .detail-date-num {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       font-weight: 700;
-      color: #3b1f05;
+      color: #f9fafb;
       line-height: 1;
     }
+
     .detail-date-month {
       font-size: 0.72rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: #6b4c1e;
+      color: #bfdbfe;
       font-weight: 600;
     }
+
     .detail-date-day {
       font-size: 0.7rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: #8b6320;
+      color: #fde68a;
       margin-top: 4px;
       font-weight: 600;
     }
+
     .detail-time {
       font-size: 1rem;
       font-weight: 600;
-      color: #3b1f05;
+      color: #f9fafb;
     }
+
     .detail-time-line {
       width: 30px;
       height: 1px;
-      background: #c9a05a;
+      background: #facc6b;
       margin: 6px auto;
     }
+
     .detail-venue {
       font-size: 0.8rem;
-      color: #3b1f05;
+      color: #e5e7eb;
       font-weight: 500;
       line-height: 1.5;
     }
+
     .footer-hearts {
       margin-top: 22px;
-      color: #b8822a;
+      color: #facc6b;
       font-size: 0.9rem;
       letter-spacing: 4px;
     }
 
-    /* Back button */
+    /* Countdown + Maps + Back section */
+    .extras {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .countdown-label {
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #bfdbfe;
+    }
+
+    .countdown-timer {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: #fde68a;
+      margin-top: 4px;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .primary-btn {
+      display: inline-block;
+      padding: 10px 26px;
+      background: linear-gradient(135deg, #38bdf8, #1d4ed8);
+      color: #f9fafb;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 999px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(37,99,235,0.5);
+      transition: all 0.3s;
+    }
+
+    .primary-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(37,99,235,0.7);
+    }
+
     .back-wrap {
       text-align: center;
       margin-top: 8px;
     }
+
     .back-btn {
       display: inline-block;
       padding: 12px 35px;
@@ -311,12 +398,13 @@
       box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
       transition: all 0.3s;
     }
+
     .back-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(255, 215, 0, 0.55);
     }
 
-    /* Static corner SVGs from splash */
+    /* Static corner SVGs */
     svg.corner {
       position: fixed;
       z-index: 0;
@@ -327,7 +415,7 @@
     svg.corner-top-right { top: 10px;  right: 10px; transform: scaleX(-1); }
     svg.corner-bottom-left  { bottom: 10px; left: 10px; }
     svg.corner-bottom-right { bottom: 10px; right: 10px; }
-    
+
     @media (max-width: 480px) {
       .couple-names {
         font-size: 2.6rem;
@@ -389,7 +477,7 @@
     <circle cx="30" cy="30" r="7" fill="#fde68a"/>
   </svg>
 
-  <!-- Main Content: your existing card -->
+  <!-- Main Content -->
   <div class="content">
     <div class="card">
       <div class="arch"></div>
@@ -455,6 +543,25 @@
       </div>
 
       <div class="footer-hearts">♥ ♥ ♥</div>
+
+      <!-- Countdown + Maps + Back -->
+      <div class="extras">
+        <div>
+          <div class="countdown-label">Time until engagement</div>
+          <div id="countdown" class="countdown-timer">Calculating…</div>
+        </div>
+
+        <div class="btn-row">
+          <a
+            href="https://www.google.com/maps?q=Swarnas+Convention,+Guru+Nanak+Colony,+Vijayawada,+Andhra+Pradesh+520010"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="primary-btn"
+          >
+            Open in Google Maps
+          </a>
+        </div>
+      </div>
     </div>
 
     <div class="back-wrap">
@@ -462,5 +569,40 @@
     </div>
   </div>
 
+  <!-- Countdown Script -->
+  <script>
+    (function() {
+      // Target date: July 25, 2026 11:00 AM local time
+      var countDownDate = new Date("July 25, 2026 11:00:00").getTime();
+
+      function updateCountdown() {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        var countdownEl = document.getElementById("countdown");
+        if (!countdownEl) return;
+
+        if (distance <= 0) {
+          countdownEl.textContent = "It's engagement time!";
+          clearInterval(intervalId);
+          return;
+        }
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownEl.textContent =
+          days + " days : " +
+          hours + " hrs : " +
+          minutes + " mins : " +
+          seconds + " secs";
+      }
+
+      var intervalId = setInterval(updateCountdown, 1000);
+      updateCountdown();
+    })();
+  </script>
 </body>
 </html>
