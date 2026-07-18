@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -96,7 +97,13 @@
       font-style: italic;
       opacity: 0.85;
     }
-    .bells { font-size: clamp(1.2rem, 5vw, 1.6rem); margin-top: 6px; animation: swing 1.4s ease-in-out infinite; display:inline-block; transform-origin: top center; }
+    .bells {
+      font-size: clamp(1.2rem, 5vw, 1.6rem);
+      margin-top: 6px;
+      animation: swing 1.4s ease-in-out infinite;
+      display:inline-block;
+      transform-origin: top center;
+    }
     @keyframes swing { 0%,100%{transform:rotate(-12deg);} 50%{transform:rotate(12deg);} }
   </style>
 </head>
@@ -156,6 +163,50 @@
     <div class="bells">🔔 🔔</div>
     <p class="tagline-bottom">A celebration of love &amp; new beginnings</p>
   </div>
+
+  <!-- Background music (main page) -->
+  <audio id="bgMusic" src="bgm-indupalli.mp3.mpeg" loop></audio>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var audio = document.getElementById('bgMusic');
+      if (!audio) return;
+
+      // Optional: lower volume a bit
+      audio.volume = 0.5;
+
+      function startMusic() {
+        audio.play().catch(function () {});
+        document.removeEventListener('click', startMusic);
+        document.removeEventListener('touchstart', startMusic);
+        document.removeEventListener('scroll', startMusic);
+      }
+
+      // Try autoplay on load
+      audio.play().catch(function (err) {
+        console.log('Autoplay blocked on main, waiting for interaction:', err);
+
+        // Any interaction (click/tap/scroll) will start music
+        document.addEventListener('click', startMusic);
+        document.addEventListener('touchstart', startMusic);
+        document.addEventListener('scroll', startMusic);
+      });
+    });
+
+    // Pause/resume when page visibility changes
+    document.addEventListener('visibilitychange', function () {
+      var audio = document.getElementById('bgMusic');
+      if (!audio) return;
+
+      if (document.hidden) {
+        audio.pause();
+      } else {
+        if (audio.currentTime > 0 && audio.paused) {
+          audio.play().catch(function () {});
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
