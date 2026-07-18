@@ -9,13 +9,14 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <title>Indupallis Invitation & Engagement</title>
 
-  <!-- Fonts -->
+  <!-- Fonts for engagement page -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 
   <style>
     * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
     html, body { height: 100%; }
 
+    /* Pastel background for welcome view */
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(160deg, #dff6ff 0%, #e8d5f5 50%, #c8e8ff 100%);
@@ -26,6 +27,7 @@
       position: relative; overflow: hidden;
     }
 
+    /* Shared floating doodles */
     .doodle-bg { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
     .floater { position:absolute; animation: floatUp 8s linear infinite; opacity:0.22; }
     .floater:nth-child(2)  { left:8%;  animation-delay:0s;    animation-duration:9s; }
@@ -45,7 +47,7 @@
       100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
     }
 
-    @keyframes flapWings { 0%,100%{transform:scaleY(1);} 50%{transform:scaleY(0.6);} }
+    @keyframes flapWings { 0%,100{transform:scaleY(1);} 50%{transform:scaleY(0.6);} }
     .pigeon-wings { display:inline-block; animation: flapWings 0.6s ease-in-out infinite; transform-origin:center; }
 
     svg.corner { position:fixed; z-index:0; opacity:0.18; pointer-events:none; }
@@ -54,6 +56,7 @@
     svg.corner-bottom-left  { bottom:10px; left:10px; }
     svg.corner-bottom-right { bottom:10px; right:10px; }
 
+    /* Two screens */
     .screen-main,
     .screen-invite {
       position:relative;
@@ -68,15 +71,16 @@
     .screen-main {
       justify-content:center;
       min-height:100vh;
-      display:flex;   /* visible */
+      display:flex;   /* visible at start */
     }
 
     .screen-invite {
       justify-content:flex-start;
       min-height:100vh;
-      display:none;   /* hidden until button clicked */
+      display:none;   /* shown after button click */
     }
 
+    /* Welcome screen styles (original theme) */
     .tagline-top {
       font-size:clamp(0.8rem,3.5vw,1rem);
       color:#7c3aed;
@@ -143,148 +147,160 @@
     }
     @keyframes swing { 0%,100%{transform:rotate(-12deg);} 50%{transform:rotate(12deg);} }
 
-    .card {
-      background:linear-gradient(160deg,rgba(255,255,255,0.08) 0%,rgba(100,160,255,0.12) 100%);
-      border-radius:24px;
-      max-width:520px;
+    /* Dark engagement theme wrapper */
+    .invite-wrapper {
       width:100%;
-      padding:45px 38px 30px;
-      text-align:center;
-      box-shadow:0 25px 70px rgba(30,58,138,0.4);
-      border:1.5px solid rgba(125,211,252,0.3);
-      position:relative;
-      margin-bottom:16px;
-      color:#e5f2ff;
+      max-width:560px;
+      margin-top:20px;
+      margin-bottom:40px;
+      padding:20px;
+      border-radius:24px;
+      background: linear-gradient(160deg, #0f172a 0%, #1e3a5f 40%, #1a1a4e 100%);
+      box-shadow:0 25px 70px rgba(15,23,42,0.8);
+    }
+
+    .card {
+      background: linear-gradient(160deg, rgba(255,255,255,0.08) 0%, rgba(100,160,255,0.12) 100%);
+      border-radius: 24px;
+      max-width: 520px;
+      width: 100%;
+      padding: 45px 38px 30px;
+      text-align: center;
+      box-shadow: 0 25px 70px rgba(30,58,138,0.4);
+      border: 1.5px solid rgba(125,211,252,0.3);
+      position: relative;
+      margin: 0 auto 16px;
+      color: #e5f2ff;
     }
 
     .arch {
-      position:absolute;
-      top:0;
-      left:50%;
-      transform:translateX(-50%);
-      width:260px;
-      height:180px;
-      border:1.5px solid #facc6b;
-      border-bottom:none;
-      border-radius:130px 130px 0 0;
-      pointer-events:none;
-      opacity:0.6;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 180px;
+      border: 1.5px solid #facc6b;
+      border-bottom: none;
+      border-radius: 130px 130px 0 0;
+      pointer-events: none;
+      opacity: 0.6;
     }
 
     .cross { font-size:1.5rem; color:#fbbf24; margin-bottom:10px; margin-top:5px; }
 
     .bible-quote {
-      font-style:italic;
-      font-size:0.8rem;
-      color:#e5e7eb;
-      line-height:1.6;
-      margin-bottom:18px;
+      font-style: italic;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      line-height: 1.6;
+      margin-bottom: 18px;
     }
 
     .divider-heart { color:#facc6b; font-size:0.85rem; letter-spacing:3px; margin:8px 0; }
 
     .please-join {
-      font-size:0.78rem;
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:#bfdbfe;
-      margin-bottom:6px;
+      font-size: 0.78rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #bfdbfe;
+      margin-bottom: 6px;
     }
 
     .engagement-title {
-      font-size:2rem;
-      font-family:'Playfair Display',serif;
-      color:#fde68a;
-      font-weight:700;
-      letter-spacing:3px;
-      text-transform:uppercase;
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      color: #fde68a;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
 
     .celebration {
-      font-family:'Great Vibes',cursive;
-      font-size:2.2rem;
-      color:#e0f2fe;
-      line-height:1;
-      margin-top:4px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2rem;
+      color: #e0f2fe;
+      line-height: 1;
+      margin-top: 4px;
     }
 
     .leaf-divider { font-size:0.9rem; color:#facc6b; margin:10px 0; }
 
     .couple-names {
-      font-family:'Playfair Display',serif;
-      font-size:3.2rem;
-      color:#f9fafb;
-      font-weight:700;
-      line-height:1.15;
-      margin:14px 0 5px;
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      color: #f9fafb;
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 14px 0 5px;
     }
 
     .amp {
-      font-family:'Playfair Display',serif;
-      font-size:2.5rem;
-      color:#facc6b;
-      display:block;
-      margin:4px 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #facc6b;
+      display: block;
+      margin: 4px 0;
     }
 
     .heart-small { color:#fbbf24; font-size:1rem; margin:10px 0; }
 
     .cheers-msg {
-      font-size:0.88rem;
-      color:#e5e7eb;
-      line-height:1.7;
-      margin:10px 0 18px;
+      font-size: 0.88rem;
+      color: #e5e7eb;
+      line-height: 1.7;
+      margin: 10px 0 18px;
     }
 
     .details-block {
-      margin-top:8px;
-      padding-top:16px;
-      border-top:1px solid rgba(250,204,165,0.4);
+      margin-top: 8px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(250,204,165,0.4);
     }
 
     .details-row {
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
     }
 
     .detail-item {
-      flex:1;
-      text-align:center;
-      padding:0 5px;
-      color:#e5f2ff;
+      flex: 1;
+      text-align: center;
+      padding: 0 5px;
+      color: #e5f2ff;
     }
 
     .detail-item + .detail-item {
-      border-left:1px solid rgba(250,204,165,0.45);
+      border-left: 1px solid rgba(250,204,165,0.45);
     }
 
     .detail-icon { font-size:1.4rem; margin-bottom:6px; color:#fbbf24; }
 
     .detail-date-num {
-      font-family:'Playfair Display',serif;
-      font-size:2rem;
-      font-weight:700;
-      color:#f9fafb;
-      line-height:1;
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #f9fafb;
+      line-height: 1;
     }
 
     .detail-date-month {
-      font-size:0.72rem;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:#bfdbfe;
-      font-weight:600;
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #bfdbfe;
+      font-weight: 600;
     }
 
     .detail-date-day {
-      font-size:0.7rem;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:#fde68a;
-      margin-top:4px;
-      font-weight:600;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fde68a;
+      margin-top: 4px;
+      font-weight: 600;
     }
 
     .detail-time { font-size:1rem; font-weight:600; color:#f9fafb; }
@@ -292,82 +308,86 @@
     .detail-time-line { width:30px; height:1px; background:#facc6b; margin:6px auto; }
 
     .detail-venue {
-      font-size:0.8rem;
-      color:#e5e7eb;
-      font-weight:500;
-      line-height:1.5;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      font-weight: 500;
+      line-height: 1.5;
     }
 
     .countdown-label-small {
-      margin-top:8px;
-      font-size:0.7rem;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      color:#bfdbfe;
+      margin-top: 8px;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #bfdbfe;
     }
 
     .countdown-timer-small { font-size:0.8rem; color:#fde68a; margin-top:2px; }
 
     .venue-directions-btn {
-      margin-top:10px;
-      padding:6px 14px;
-      border-radius:999px;
-      border:none;
-      cursor:pointer;
-      font-size:0.8rem;
-      font-weight:600;
-      letter-spacing:0.5px;
-      background:linear-gradient(135deg,#38bdf8,#1d4ed8);
-      color:#f9fafb;
-      box-shadow:0 2px 8px rgba(37,99,235,0.5);
-      transition:all 0.2s;
+      margin-top: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #38bdf8, #1d4ed8);
+      color: #f9fafb;
+      box-shadow: 0 2px 8px rgba(37,99,235,0.5);
+      transition: all 0.2s;
     }
     .venue-directions-btn:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(37,99,235,0.7); }
 
     .chief-guest-strip {
-      margin-top:20px;
-      padding:12px 18px;
-      border-radius:999px;
-      background:radial-gradient(circle at 50% 0%,rgba(250,250,250,0.25),rgba(15,23,42,0.7));
-      border:1px solid rgba(252,211,77,0.5);
-      box-shadow:0 10px 30px rgba(30,64,175,0.5);
+      margin-top: 20px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: radial-gradient(
+        circle at 50% 0%,
+        rgba(250,250,250,0.25),
+        rgba(15,23,42,0.7)
+      );
+      border: 1px solid rgba(252,211,77,0.5);
+      box-shadow: 0 10px 30px rgba(30,64,175,0.5);
     }
 
     .chief-guest-intro {
-      font-size:0.78rem;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:#bfdbfe;
-      margin-bottom:4px;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #bfdbfe;
+      margin-bottom: 4px;
     }
 
     .chief-guest-name-line {
-      font-family:'Playfair Display',serif;
-      font-size:1.2rem;
-      color:#fde68a;
-      font-weight:700;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: #fde68a;
+      font-weight: 700;
     }
 
     .chief-guest-title-line {
-      font-size:0.85rem;
-      color:#e5e7eb;
-      margin-top:2px;
+      font-size: 0.85rem;
+      color: #e5e7eb;
+      margin-top: 2px;
     }
 
     .blessings {
-      font-style:italic;
-      font-size:0.82rem;
-      color:#bfdbfe;
-      margin-top:18px;
-      margin-bottom:4px;
+      font-style: italic;
+      font-size: 0.82rem;
+      color: #bfdbfe;
+      margin-top: 18px;
+      margin-bottom: 4px;
     }
 
     .parents {
-      font-size:0.92rem;
-      font-weight:600;
-      color:#e5f2ff;
-      line-height:1.8;
-      margin-bottom:20px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #e5f2ff;
+      line-height: 1.8;
+      margin-bottom: 20px;
     }
 
     .footer-hearts { margin-top:22px; color:#facc6b; font-size:0.9rem; letter-spacing:4px; }
@@ -448,101 +468,103 @@
     <p class="tagline-bottom">A celebration of love &amp; new beginnings</p>
   </div>
 
-  <!-- Screen 2: Engagement Invitation Card -->
+  <!-- Screen 2: Engagement Invitation Card (restored dark theme) -->
   <div class="screen-invite" id="screen-invite">
-    <div class="card">
-      <div class="arch"></div>
-      <div class="cross">✝</div>
+    <div class="invite-wrapper">
+      <div class="card">
+        <div class="arch"></div>
+        <div class="cross">✝</div>
 
-      <p class="bible-quote">
-        “Let all that you do be done in love.”<br />
-        – 1 Corinthians 16:14
-      </p>
+        <p class="bible-quote">
+          “Let all that you do be done in love.”<br />
+          – 1 Corinthians 16:14
+        </p>
 
-      <div class="divider-heart">✦ ♥ ✦</div>
-      <p class="please-join">Please join us for the</p>
-      <h1 class="engagement-title">Engagement</h1>
-      <p class="celebration">Celebration of Love</p>
+        <div class="divider-heart">✦ ♥ ✦</div>
+        <p class="please-join">Please join us for the</p>
+        <h1 class="engagement-title">Engagement</h1>
+        <p class="celebration">Celebration of Love</p>
 
-      <div class="leaf-divider">❀❀❀</div>
+        <div class="leaf-divider">❀❀❀</div>
 
-      <div class="couple-names">
-        Navya
-        <span class="amp">&amp;</span>
-        Raju
-      </div>
+        <div class="couple-names">
+          Navya
+          <span class="amp">&amp;</span>
+          Raju
+        </div>
 
-      <div class="heart-small">♥</div>
+        <div class="heart-small">♥</div>
 
-      <p class="cheers-msg">
-        With hearts full of love and gratitude, we invite you to join us in
-        showering your warm wishes and blessings upon the couple as they begin
-        this beautiful journey together — lovingly invited by the Indupalli
-        family and big brother Praveen Chand Indupalli.
-      </p>
+        <p class="cheers-msg">
+          With hearts full of love and gratitude, we invite you to join us in
+          showering your warm wishes and blessings upon the couple as they begin
+          this beautiful journey together — lovingly invited by the Indupalli
+          family and big brother Praveen Chand Indupalli.
+        </p>
 
-      <div class="details-block">
-        <div class="details-row">
-          <div class="detail-item">
-            <div class="detail-icon">💕</div>
-            <div class="detail-date-num">25</div>
-            <div class="detail-date-month">July<br />2026</div>
-            <div class="detail-date-day">Saturday</div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">🕐</div>
-            <div class="detail-time">11:00 AM</div>
-            <div class="detail-time-line"></div>
-
-            <div class="countdown-label-small">Countdown</div>
-            <div id="countdown" class="countdown-timer-small">Calculating…</div>
-          </div>
-
-          <div class="detail-item">
-            <div class="detail-icon">📍</div>
-            <div class="detail-venue">
-              Swarna Convention,<br />
-              Gurunanak Colony,<br />
-              Vijayawada
+        <div class="details-block">
+          <div class="details-row">
+            <div class="detail-item">
+              <div class="detail-icon">💕</div>
+              <div class="detail-date-num">25</div>
+              <div class="detail-date-month">July<br />2026</div>
+              <div class="detail-date-day">Saturday</div>
             </div>
-            <button
-              type="button"
-              onclick="window.open(
-                'https://www.google.com/maps/dir/?api=1&destination=Swarnas+Convention,+Guru+Nanak+Colony,+Vijayawada,+Andhra+Pradesh+520010',
-                '_blank'
-              );"
-              class="venue-directions-btn"
-            >
-              Directions
-            </button>
+
+            <div class="detail-item">
+              <div class="detail-icon">🕐</div>
+              <div class="detail-time">11:00 AM</div>
+              <div class="detail-time-line"></div>
+
+              <div class="countdown-label-small">Countdown</div>
+              <div id="countdown" class="countdown-timer-small">Calculating…</div>
+            </div>
+
+            <div class="detail-item">
+              <div class="detail-icon">📍</div>
+              <div class="detail-venue">
+                Swarna Convention,<br />
+                Gurunanak Colony,<br />
+                Vijayawada
+              </div>
+              <button
+                type="button"
+                onclick="window.open(
+                  'https://www.google.com/maps/dir/?api=1&destination=Swarnas+Convention,+Guru+Nanak+Colony,+Vijayawada,+Andhra+Pradesh+520010',
+                  '_blank'
+                );"
+                class="venue-directions-btn"
+              >
+                Directions
+              </button>
+            </div>
           </div>
         </div>
+
+        <div class="chief-guest-strip">
+          <p class="chief-guest-intro">
+            With the gracious presence of
+          </p>
+          <p class="chief-guest-name-line">
+            Rev. P Noel Samuel
+          </p>
+          <p class="chief-guest-title-line">
+            IPC State Secretary
+          </p>
+        </div>
+
+        <p class="blessings">With love and blessings,</p>
+        <p class="parents">
+          Mr. Indupalli Sudheer &amp;<br />
+          Mrs Indupalli Jaya Mani
+        </p>
+
+        <div class="footer-hearts">♥ ♥ ♥</div>
       </div>
 
-      <div class="chief-guest-strip">
-        <p class="chief-guest-intro">
-          With the gracious presence of
-        </p>
-        <p class="chief-guest-name-line">
-          Rev. P Noel Samuel
-        </p>
-        <p class="chief-guest-title-line">
-          IPC State Secretary
-        </p>
+      <div class="back-wrap">
+        <button class="back-btn" id="backMainBtn">← Back to Main Page</button>
       </div>
-
-      <p class="blessings">With love and blessings,</p>
-      <p class="parents">
-        Mr. Indupalli Sudheer &amp;<br />
-        Mrs Indupalli Jaya Mani
-      </p>
-
-      <div class="footer-hearts">♥ ♥ ♥</div>
-    </div>
-
-    <div class="back-wrap">
-      <button class="back-btn" id="backMainBtn">← Back to Main Page</button>
     </div>
   </div>
 
@@ -580,7 +602,7 @@
     })();
   </script>
 
-  <!-- Background music (continuous) -->
+  <!-- Background music (single file, continuous) -->
   <audio id="bgMusic" src="bgm-indupalli.mp3.mpeg" loop></audio>
 
   <script>
@@ -601,7 +623,7 @@
         document.removeEventListener('scroll', startMusic);
       }
 
-      // Try autoplay
+      // Try autoplay once
       audio.play().catch(function (err) {
         console.log('Autoplay blocked, waiting for interaction:', err);
         document.addEventListener('click', startMusic);
@@ -630,10 +652,8 @@
 
       if (document.hidden) {
         audio.pause();
-      } else {
-        if (audio.currentTime > 0 && audio.paused) {
-          audio.play().catch(function () {});
-        }
+      } else if (audio.currentTime > 0 && audio.paused) {
+        audio.play().catch(function () {});
       }
     });
   </script>
