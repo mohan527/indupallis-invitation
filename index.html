@@ -253,11 +253,18 @@
       margin-top: 3px;
     }
 
+    /* Details block directly under cheers */
+    .details-block {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(250,204,165,0.4);
+    }
+
     .details-row {
       display: flex;
       justify-content: space-around;
       align-items: flex-start;
-      margin-top: 24px;
+      margin-top: 10px;
       gap: 10px;
     }
 
@@ -323,13 +330,6 @@
       line-height: 1.5;
     }
 
-    .footer-hearts {
-      margin-top: 22px;
-      color: #facc6b;
-      font-size: 0.9rem;
-      letter-spacing: 4px;
-    }
-
     /* Small countdown under time */
     .countdown-label-small {
       margin-top: 8px;
@@ -343,6 +343,13 @@
       font-size: 0.8rem;
       color: #fde68a; /* pale gold */
       margin-top: 2px;
+    }
+
+    .footer-hearts {
+      margin-top: 22px;
+      color: #facc6b;
+      font-size: 0.9rem;
+      letter-spacing: 4px;
     }
 
     .back-wrap {
@@ -495,6 +502,46 @@
         laughter, and a future filled with joy.
       </p>
 
+      <!-- NEW: date, time, venue block right under cheers -->
+      <div class="details-block">
+        <div class="details-row">
+          <div class="detail-item">
+            <div class="detail-icon">💕</div>
+            <div class="detail-date-num">25</div>
+            <div class="detail-date-month">July<br />2026</div>
+            <div class="detail-date-day">Saturday</div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">🕐</div>
+            <div class="detail-time">11:00 AM</div>
+            <div class="detail-time-line"></div>
+
+            <div class="countdown-label-small">Countdown</div>
+            <div id="countdown" class="countdown-timer-small">Calculating…</div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">📍</div>
+            <div class="detail-venue">
+              Swarna Convention,<br />
+              Gurunanak Colony,<br />
+              Vijayawada
+            </div>
+            <button
+              type="button"
+              onclick="window.open(
+                'https://www.google.com/maps/dir/?api=1&destination=Swarnas+Convention,+Guru+Nanak+Colony,+Vijayawada,+Andhra+Pradesh+520010',
+                '_blank'
+              );"
+              class="venue-directions-btn"
+            >
+              Directions
+            </button>
+          </div>
+        </div>
+      </div>
+
       <p class="blessings">With love and blessings,</p>
       <p class="parents">
         Mr. Indupalli Sudheer &amp;<br />
@@ -505,44 +552,6 @@
         <p class="chief-guest-label">✦✦ Chief Guest ✦✦</p>
         <p class="chief-guest-name">Rev. P Noel Samuel</p>
         <p class="chief-guest-title">IPC State Secretary</p>
-      </div>
-
-      <div class="details-row">
-        <div class="detail-item">
-          <div class="detail-icon">💕</div>
-          <div class="detail-date-num">25</div>
-          <div class="detail-date-month">July<br />2026</div>
-          <div class="detail-date-day">Saturday</div>
-        </div>
-
-        <div class="detail-item">
-          <div class="detail-icon">🕐</div>
-          <div class="detail-time">11:00 AM</div>
-          <div class="detail-time-line"></div>
-
-          <!-- Countdown directly under time -->
-          <div class="countdown-label-small">Countdown</div>
-          <div id="countdown" class="countdown-timer-small">Calculating…</div>
-        </div>
-
-        <div class="detail-item">
-          <div class="detail-icon">📍</div>
-          <div class="detail-venue">
-            Swarna Convention,<br />
-            Gurunanak Colony,<br />
-            Vijayawada
-          </div>
-          <button
-            type="button"
-            onclick="window.open(
-              'https://www.google.com/maps/dir/?api=1&destination=Swarnas+Convention,+Guru+Nanak+Colony,+Vijayawada,+Andhra+Pradesh+520010',
-              '_blank'
-            );"
-            class="venue-directions-btn"
-          >
-            Directions
-          </button>
-        </div>
       </div>
 
       <div class="footer-hearts">♥ ♥ ♥</div>
