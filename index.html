@@ -37,7 +37,7 @@
       text-align: center;
       padding: 20px;
       position: relative;
-      overflow-x: hidden; /* allow vertical scroll */
+      overflow-x: hidden;
     }
 
     /* Floating doodles animation */
@@ -83,7 +83,7 @@
       transform-origin: center;
     }
 
-    /* Main content wrapper so card sits above doodles */
+    /* Main content wrapper */
     .content {
       position: relative;
       z-index: 1;
@@ -178,38 +178,46 @@
       margin: 10px 0;
     }
 
-    /* Shining / glowing bride & groom names */
-    .couple-names-highlight {
-      display: inline-block;
-      padding: 10px 22px;
+    /* Bride & groom names - softer script style */
+    .couple-names-row {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 12px;
       margin-top: 8px;
+      padding: 6px 16px;
       border-radius: 999px;
-      position: relative;
-      background: radial-gradient(
-        circle at 50% 0%,
-        rgba(253,230,138,0.45),
-        rgba(15,23,42,0.0)
-      );
-      box-shadow: 0 0 28px rgba(251,191,36,0.45);
+      background: rgba(15,23,42,0.5);
     }
 
-    .couple-names {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
+    .bride-name,
+    .groom-name {
+      font-family: 'Great Vibes', cursive;
       color: #fefce8;
-      font-weight: 700;
-      line-height: 1.1;
-      text-shadow:
-        0 0 12px rgba(251,191,36,0.8),
-        0 0 24px rgba(250,204,21,0.5);
+      text-shadow: 0 0 6px rgba(248,250,252,0.5);
     }
 
-    .amp {
+    .bride-name {
+      font-size: 2.6rem; /* slightly leading */
+    }
+
+    .groom-name {
+      font-size: 2.4rem; /* just a bit smaller */
+    }
+
+    .amp-soft {
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
+      font-size: 1.8rem;
       color: #fde68a;
-      display: inline-block;
-      margin: 0 10px;
+    }
+
+    /* Gentle underline accent under names */
+    .couple-underline {
+      width: 65%;
+      max-width: 280px;
+      height: 2px;
+      margin: 6px auto 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #38bdf8, #fde68a, #38bdf8);
     }
 
     .heart-small {
@@ -434,8 +442,11 @@
     svg.corner-bottom-right { bottom: 10px; right: 10px; }
 
     @media (max-width: 480px) {
-      .couple-names {
-        font-size: 2.6rem;
+      .bride-name {
+        font-size: 2.2rem;
+      }
+      .groom-name {
+        font-size: 2rem;
       }
     }
   </style>
@@ -512,13 +523,13 @@
 
       <div class="leaf-divider">❀❀❀</div>
 
-      <div class="couple-names-highlight">
-        <div class="couple-names">
-          Navya
-          <span class="amp">&amp;</span>
-          Raju
-        </div>
+      <div class="couple-names-row">
+        <span class="bride-name">Navya</span>
+        <span class="amp-soft">&amp;</span>
+        <span class="groom-name">Raju</span>
       </div>
+
+      <div class="couple-underline"></div>
 
       <div class="heart-small">♥</div>
 
