@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+head>
   <meta charset="UTF-8" />
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -178,46 +178,22 @@
       margin: 10px 0;
     }
 
-    /* Bride & groom names - softer script style */
-    .couple-names-row {
-      display: inline-flex;
-      align-items: baseline;
-      gap: 12px;
-      margin-top: 8px;
-      padding: 6px 16px;
-      border-radius: 999px;
-      background: rgba(15,23,42,0.5);
-    }
-
-    .bride-name,
-    .groom-name {
-      font-family: 'Great Vibes', cursive;
-      color: #fefce8;
-      text-shadow: 0 0 6px rgba(248,250,252,0.5);
-    }
-
-    .bride-name {
-      font-size: 2.6rem; /* slightly leading */
-    }
-
-    .groom-name {
-      font-size: 2.4rem; /* just a bit smaller */
-    }
-
-    .amp-soft {
+    /* Simple stacked names (original style) */
+    .couple-names {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      color: #fde68a;
+      font-size: 3.2rem;
+      color: #f9fafb;
+      font-weight: 700;
+      line-height: 1.15;
+      margin: 14px 0 5px;
     }
 
-    /* Gentle underline accent under names */
-    .couple-underline {
-      width: 65%;
-      max-width: 280px;
-      height: 2px;
-      margin: 6px auto 0;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #38bdf8, #fde68a, #38bdf8);
+    .amp {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      color: #facc6b;
+      display: block;
+      margin: 4px 0;
     }
 
     .heart-small {
@@ -346,7 +322,7 @@
       box-shadow: 0 4px 12px rgba(37,99,235,0.7);
     }
 
-    /* Chief guest strip (soft blessed feel) */
+    /* Chief guest strip */
     .chief-guest-strip {
       margin-top: 20px;
       padding: 12px 18px;
@@ -442,11 +418,8 @@
     svg.corner-bottom-right { bottom: 10px; right: 10px; }
 
     @media (max-width: 480px) {
-      .bride-name {
-        font-size: 2.2rem;
-      }
-      .groom-name {
-        font-size: 2rem;
+      .couple-names {
+        font-size: 2.6rem;
       }
     }
   </style>
@@ -523,13 +496,11 @@
 
       <div class="leaf-divider">❀❀❀</div>
 
-      <div class="couple-names-row">
-        <span class="bride-name">Navya</span>
-        <span class="amp-soft">&amp;</span>
-        <span class="groom-name">Raju</span>
+      <div class="couple-names">
+        Navya
+        <span class="amp">&amp;</span>
+        Raju
       </div>
-
-      <div class="couple-underline"></div>
 
       <div class="heart-small">♥</div>
 
