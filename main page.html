@@ -11,7 +11,7 @@
     * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     body {
       font-family: 'Georgia', serif;
-      background: linear-gradient(135deg, #1a0a00, #3d1a00);
+      background: linear-gradient(160deg, #dff6ff 0%, #e8d5f5 50%, #c8e8ff 100%);
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
@@ -20,13 +20,27 @@
       justify-content: center;
       text-align: center;
       padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .doodle-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.18;
+    }
+    .content {
+      position: relative;
+      z-index: 1;
     }
     h1 {
-      font-size: clamp(1.4rem, 6vw, 2.4rem);
-      color: #ffd700;
+      font-size: clamp(1.5rem, 6vw, 2.6rem);
+      color: #5b3a8a;
       letter-spacing: 2px;
       margin-bottom: 40px;
-      text-shadow: 2px 2px 10px rgba(255,215,0,0.4);
+      text-shadow: 1px 1px 8px rgba(150,100,220,0.25);
       line-height: 1.4;
       padding: 0 10px;
     }
@@ -35,33 +49,107 @@
       width: 90%;
       max-width: 320px;
       padding: 18px 30px;
-      background: linear-gradient(135deg, #ffd700, #ffb300);
-      color: #1a0a00;
+      background: linear-gradient(135deg, #a78bfa, #7dd3fc);
+      color: #ffffff;
       font-size: clamp(1rem, 4.5vw, 1.2rem);
       font-weight: bold;
       font-family: 'Georgia', serif;
       border-radius: 50px;
       text-decoration: none;
       letter-spacing: 1.5px;
-      box-shadow: 0 6px 25px rgba(255,215,0,0.5);
+      box-shadow: 0 6px 25px rgba(139,92,246,0.35);
       transition: transform 0.2s, box-shadow 0.2s;
       touch-action: manipulation;
       cursor: pointer;
+      border: 2px solid rgba(255,255,255,0.5);
     }
     .invite-btn:active {
       transform: scale(0.96);
-      box-shadow: 0 3px 12px rgba(255,215,0,0.4);
+      box-shadow: 0 3px 12px rgba(139,92,246,0.3);
     }
     @media (hover: hover) {
       .invite-btn:hover {
         transform: translateY(-4px) scale(1.03);
-        box-shadow: 0 12px 35px rgba(255,215,0,0.7);
+        box-shadow: 0 12px 35px rgba(139,92,246,0.5);
       }
     }
   </style>
 </head>
 <body>
-  <h1>Indupallis Invitation</h1>
-  <a href="index.html" class="invite-btn">Indupallis Invitation</a>
+
+  <!-- Engagement Doodle Art SVG Background -->
+  <svg class="doodle-bg" viewBox="0 0 400 800" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <!-- Rings top left -->
+    <circle cx="40" cy="60" r="18" fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+    <circle cx="62" cy="60" r="18" fill="none" stroke="#0ea5e9" stroke-width="2.5"/>
+    <!-- Hearts scattered -->
+    <text x="80" y="100" font-size="28" fill="#a855f7">♥</text>
+    <text x="300" y="80" font-size="20" fill="#38bdf8">♥</text>
+    <text x="160" y="700" font-size="24" fill="#c084fc">♥</text>
+    <text x="30" y="650" font-size="18" fill="#7dd3fc">♥</text>
+    <text x="340" y="600" font-size="22" fill="#a78bfa">♥</text>
+    <!-- Flowers -->
+    <circle cx="350" cy="150" r="8" fill="#f0abfc"/>
+    <circle cx="362" cy="142" r="8" fill="#e879f9"/>
+    <circle cx="362" cy="158" r="8" fill="#e879f9"/>
+    <circle cx="338" cy="142" r="8" fill="#e879f9"/>
+    <circle cx="338" cy="158" r="8" fill="#e879f9"/>
+    <circle cx="350" cy="150" r="6" fill="#fde68a"/>
+    <!-- Small flower 2 -->
+    <circle cx="60" cy="300" r="6" fill="#c4b5fd"/>
+    <circle cx="69" cy="294" r="6" fill="#a78bfa"/>
+    <circle cx="69" cy="306" r="6" fill="#a78bfa"/>
+    <circle cx="51" cy="294" r="6" fill="#a78bfa"/>
+    <circle cx="51" cy="306" r="6" fill="#a78bfa"/>
+    <circle cx="60" cy="300" r="4" fill="#fef08a"/>
+    <!-- Stars / sparkles -->
+    <text x="20" y="200" font-size="22" fill="#93c5fd">✨</text>
+    <text x="360" y="300" font-size="18" fill="#c4b5fd">✨</text>
+    <text x="180" y="750" font-size="16" fill="#7dd3fc">✨</text>
+    <text x="320" y="720" font-size="20" fill="#a78bfa">✨</text>
+    <!-- Ring on finger doodle -->
+    <ellipse cx="200" cy="130" rx="22" ry="10" fill="none" stroke="#7c3aed" stroke-width="2"/>
+    <rect x="188" y="112" width="24" height="18" rx="4" fill="none" stroke="#7c3aed" stroke-width="2"/>
+    <polygon points="200,108 205,116 195,116" fill="#38bdf8"/>
+    <!-- Leaves / vines -->
+    <path d="M10 400 Q30 370 50 400 Q30 430 10 400Z" fill="#86efac" opacity="0.7"/>
+    <path d="M360 450 Q380 420 400 450 Q380 480 360 450Z" fill="#6ee7b7" opacity="0.7"/>
+    <path d="M5 500 Q25 480 45 500" fill="none" stroke="#4ade80" stroke-width="1.5"/>
+    <path d="M355 550 Q375 530 395 550" fill="none" stroke="#34d399" stroke-width="1.5"/>
+    <!-- Swirly lines -->
+    <path d="M0 180 Q80 160 80 220 Q80 280 160 260" fill="none" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <path d="M400 350 Q320 330 320 390 Q320 450 240 430" fill="none" stroke="#7dd3fc" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <!-- Diamond ring -->
+    <polygon points="200,600 215,615 200,635 185,615" fill="none" stroke="#7c3aed" stroke-width="2"/>
+    <polygon points="200,600 215,615 200,608 185,615" fill="#bfdbfe" opacity="0.8"/>
+    <rect x="192" y="635" width="16" height="10" rx="3" fill="none" stroke="#7c3aed" stroke-width="2"/>
+    <!-- Dots pattern -->
+    <circle cx="100" cy="500" r="3" fill="#a78bfa"/>
+    <circle cx="115" cy="515" r="3" fill="#7dd3fc"/>
+    <circle cx="100" cy="530" r="3" fill="#c4b5fd"/>
+    <circle cx="115" cy="545" r="3" fill="#7dd3fc"/>
+    <circle cx="300" cy="200" r="3" fill="#a78bfa"/>
+    <circle cx="315" cy="215" r="3" fill="#7dd3fc"/>
+    <circle cx="300" cy="230" r="3" fill="#c4b5fd"/>
+    <!-- Butterflies -->
+    <path d="M130 400 Q140 388 150 400 Q140 412 130 400Z" fill="#e879f9" opacity="0.8"/>
+    <path d="M150 400 Q160 388 170 400 Q160 412 150 400Z" fill="#c084fc" opacity="0.8"/>
+    <path d="M250 480 Q260 468 270 480 Q260 492 250 480Z" fill="#38bdf8" opacity="0.8"/>
+    <path d="M270 480 Q280 468 290 480 Q280 492 270 480Z" fill="#7dd3fc" opacity="0.8"/>
+    <!-- Small hearts trail -->
+    <text x="140" y="200" font-size="12" fill="#c084fc">♥</text>
+    <text x="155" y="215" font-size="10" fill="#7dd3fc">♥</text>
+    <text x="168" y="228" font-size="8" fill="#a78bfa">♥</text>
+    <!-- Bow/ribbon -->
+    <path d="M180 670 Q190 660 200 670 Q210 660 220 670" fill="none" stroke="#f472b6" stroke-width="2"/>
+    <path d="M180 670 Q190 680 200 670 Q210 680 220 670" fill="none" stroke="#f472b6" stroke-width="2"/>
+    <circle cx="200" cy="670" r="3" fill="#f472b6"/>
+  </svg>
+
+  <div class="content">
+    <h1>Indupallis Invitation</h1>
+    <a href="index.html" class="invite-btn">Indupallis Invitation</a>
+  </div>
+
 </body>
 </html>
