@@ -3,196 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Main Page - Indupallis Invitation</title>
+  <title>Indupallis Invitation</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Georgia', serif;
       background: linear-gradient(135deg, #1a0a00, #3d1a00);
-      color: #f5deb3;
       min-height: 100vh;
-    }
-    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 60px 20px 30px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.4), transparent);
     }
-    header h1 {
-      font-size: 3rem;
+    h1 {
+      font-size: 2.2rem;
       color: #ffd700;
-      text-shadow: 2px 2px 8px rgba(255,215,0,0.5);
-      letter-spacing: 4px;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #f5deb3;
-      margin-top: 10px;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
+      margin-bottom: 35px;
+      text-shadow: 2px 2px 10px rgba(255,215,0,0.4);
     }
     .invite-btn {
       display: inline-block;
-      margin-top: 30px;
-      padding: 16px 45px;
+      padding: 16px 50px;
       background: linear-gradient(135deg, #ffd700, #ffb300);
       color: #1a0a00;
       font-size: 1.2rem;
       font-weight: bold;
       font-family: 'Georgia', serif;
-      border: none;
       border-radius: 50px;
-      cursor: pointer;
+      text-decoration: none;
       letter-spacing: 2px;
       box-shadow: 0 6px 25px rgba(255,215,0,0.5);
-      text-decoration: none;
-      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
     .invite-btn:hover {
       transform: translateY(-4px) scale(1.05);
       box-shadow: 0 12px 35px rgba(255,215,0,0.7);
-      background: linear-gradient(135deg, #ffe44d, #ffd700);
-    }
-    .invite-btn:active { transform: scale(0.97); }
-    .divider {
-      text-align: center;
-      font-size: 2rem;
-      color: #ffd700;
-      margin: 20px 0;
-    }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 40px 20px;
-    }
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid #ffd700;
-      border-radius: 16px;
-      padding: 30px;
-      width: 280px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(255,215,0,0.3);
-    }
-    .card .icon { font-size: 3rem; margin-bottom: 15px; }
-    .card h3 { font-size: 1.4rem; color: #ffd700; margin-bottom: 10px; }
-    .card p { font-size: 0.95rem; line-height: 1.6; color: #f5deb3; }
-    .card a {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 25px;
-      background: #ffd700;
-      color: #1a0a00;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .card a:hover { background: #ffb300; }
-    .countdown {
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .countdown h2 { font-size: 2rem; color: #ffd700; margin-bottom: 20px; }
-    .timer {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .time-box {
-      background: rgba(255,215,0,0.1);
-      border: 2px solid #ffd700;
-      border-radius: 12px;
-      padding: 20px 30px;
-      min-width: 90px;
-    }
-    .time-box span { display: block; }
-    .time-box .num { font-size: 2.5rem; color: #ffd700; font-weight: bold; }
-    .time-box .label { font-size: 0.85rem; color: #f5deb3; margin-top: 5px; }
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 0.9rem;
-      color: #c8a96e;
-      border-top: 1px solid rgba(255,215,0,0.2);
-      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-
-  <header>
-    <div style="font-size:3rem;">💍</div>
-    <h1>Indupallis Invitation</h1>
-    <p>Welcome to our celebration portal</p>
-    <a href="index.html" class="invite-btn">Indupallis Invitation</a>
-  </header>
-
-  <div class="divider">✦ ✦ ✦</div>
-
-  <div class="cards">
-    <div class="card">
-      <div class="icon">💒</div>
-      <h3>Engagement</h3>
-      <p>Join us as we celebrate the engagement of Navya &amp; Raju with love and blessings.</p>
-      <a href="index.html">View Invitation</a>
-    </div>
-    <div class="card">
-      <div class="icon">📍</div>
-      <h3>Venue</h3>
-      <p>Hyderabad, Telangana<br/>Date &amp; Time details inside the invitation card.</p>
-      <a href="index.html#venue">Get Directions</a>
-    </div>
-    <div class="card">
-      <div class="icon">📸</div>
-      <h3>Gallery</h3>
-      <p>Cherish beautiful memories and moments from our journey together.</p>
-      <a href="index.html#gallery">View Gallery</a>
-    </div>
-  </div>
-
-  <div class="divider">✦ ✦ ✦</div>
-
-  <div class="countdown">
-    <h2>Counting Down to the Big Day</h2>
-    <div class="timer">
-      <div class="time-box"><span class="num" id="days">00</span><span class="label">Days</span></div>
-      <div class="time-box"><span class="num" id="hours">00</span><span class="label">Hours</span></div>
-      <div class="time-box"><span class="num" id="mins">00</span><span class="label">Minutes</span></div>
-      <div class="time-box"><span class="num" id="secs">00</span><span class="label">Seconds</span></div>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2026 Indupallis Family &bull; Made with love in Hyderabad
-  </footer>
-
-  <script>
-    const eventDate = new Date('2026-12-01T10:00:00');
-    function updateTimer() {
-      const now = new Date();
-      const diff = eventDate - now;
-      if (diff <= 0) {
-        document.querySelector('.countdown h2').textContent = 'The Big Day is Here!';
-        return;
-      }
-      const days = Math.floor(diff / (1000*60*60*24));
-      const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
-      const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
-      const secs = Math.floor((diff % (1000*60)) / 1000);
-      document.getElementById('days').textContent = String(days).padStart(2,'0');
-      document.getElementById('hours').textContent = String(hours).padStart(2,'0');
-      document.getElementById('mins').textContent = String(mins).padStart(2,'0');
-      document.getElementById('secs').textContent = String(secs).padStart(2,'0');
-    }
-    setInterval(updateTimer, 1000);
-    updateTimer();
-  </script>
-
+  <h1>Indupallis Invitation</h1>
+  <a href="index.html" class="invite-btn">Indupallis Invitation</a>
 </body>
 </html>
