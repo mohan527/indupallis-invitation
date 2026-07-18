@@ -108,7 +108,7 @@
       border: 1.5px solid rgba(125,211,252,0.3);
       position: relative;
       margin-bottom: 16px;
-      color: #e5f2ff; /* soft light text overall */
+      color: #e5f2ff;
     }
 
     .arch {
@@ -118,7 +118,7 @@
       transform: translateX(-50%);
       width: 260px;
       height: 180px;
-      border: 1.5px solid #facc6b; /* warm gold */
+      border: 1.5px solid #facc6b;
       border-bottom: none;
       border-radius: 130px 130px 0 0;
       pointer-events: none;
@@ -127,7 +127,7 @@
 
     .cross {
       font-size: 1.5rem;
-      color: #fbbf24; /* gold */
+      color: #fbbf24;
       margin-bottom: 10px;
       margin-top: 5px;
     }
@@ -135,13 +135,13 @@
     .bible-quote {
       font-style: italic;
       font-size: 0.8rem;
-      color: #e5e7eb; /* soft white */
+      color: #e5e7eb;
       line-height: 1.6;
       margin-bottom: 18px;
     }
 
     .divider-heart {
-      color: #facc6b; /* gold */
+      color: #facc6b;
       font-size: 0.85rem;
       letter-spacing: 3px;
       margin: 8px 0;
@@ -151,14 +151,14 @@
       font-size: 0.78rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: #bfdbfe; /* light blue */
+      color: #bfdbfe;
       margin-bottom: 6px;
     }
 
     .engagement-title {
       font-size: 2rem;
       font-family: 'Playfair Display', serif;
-      color: #fde68a; /* pale gold */
+      color: #fde68a;
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -166,9 +166,10 @@
 
     .celebration {
       font-family: 'Great Vibes', cursive;
-      font-size: 2.4rem;
-      color: #e0f2fe; /* very light blue */
+      font-size: 2.2rem;
+      color: #e0f2fe;
       line-height: 1;
+      margin-top: 4px;
     }
 
     .leaf-divider {
@@ -177,21 +178,38 @@
       margin: 10px 0;
     }
 
+    /* Shining / glowing bride & groom names */
+    .couple-names-highlight {
+      display: inline-block;
+      padding: 10px 22px;
+      margin-top: 8px;
+      border-radius: 999px;
+      position: relative;
+      background: radial-gradient(
+        circle at 50% 0%,
+        rgba(253,230,138,0.45),
+        rgba(15,23,42,0.0)
+      );
+      box-shadow: 0 0 28px rgba(251,191,36,0.45);
+    }
+
     .couple-names {
       font-family: 'Playfair Display', serif;
       font-size: 3.2rem;
-      color: #f9fafb; /* near white */
+      color: #fefce8;
       font-weight: 700;
-      line-height: 1.15;
-      margin: 14px 0 5px;
+      line-height: 1.1;
+      text-shadow:
+        0 0 12px rgba(251,191,36,0.8),
+        0 0 24px rgba(250,204,21,0.5);
     }
 
     .amp {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: #facc6b;
-      display: block;
-      margin: 4px 0;
+      font-size: 2.4rem;
+      color: #fde68a;
+      display: inline-block;
+      margin: 0 10px;
     }
 
     .heart-small {
@@ -223,7 +241,7 @@
     }
 
     .detail-item {
-      flex: 1; /* equal width columns */
+      flex: 1;
       text-align: center;
       padding: 0 5px;
       color: #e5f2ff;
@@ -320,7 +338,7 @@
       box-shadow: 0 4px 12px rgba(37,99,235,0.7);
     }
 
-    /* New chief guest strip (soft blessed feel) */
+    /* Chief guest strip (soft blessed feel) */
     .chief-guest-strip {
       margin-top: 20px;
       padding: 12px 18px;
@@ -488,16 +506,18 @@
       </p>
 
       <div class="divider-heart">✦ ♥ ✦</div>
-      <p class="please-join">Please Join Us For An</p>
+      <p class="please-join">Please join us for the</p>
       <h1 class="engagement-title">Engagement</h1>
-      <p class="celebration">Celebration♡</p>
+      <p class="celebration">Celebration of Love</p>
 
       <div class="leaf-divider">❀❀❀</div>
 
-      <div class="couple-names">
-        Navya
-        <span class="amp">&amp;</span>
-        Raju
+      <div class="couple-names-highlight">
+        <div class="couple-names">
+          Navya
+          <span class="amp">&amp;</span>
+          Raju
+        </div>
       </div>
 
       <div class="heart-small">♥</div>
@@ -506,7 +526,8 @@
       <p class="cheers-msg">
         With hearts full of love and gratitude, we invite you to join us in
         showering your warm wishes and blessings upon the couple as they begin
-        this beautiful journey together 
+        this beautiful journey together — lovingly invited by the Indupalli
+        family and big brother Praveen Chand Indupalli.
       </p>
 
       <!-- Date, time, venue block right under blessing -->
