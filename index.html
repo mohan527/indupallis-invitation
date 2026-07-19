@@ -48,7 +48,7 @@
       100% { background-position: 0% 0%; }
     }
 
-    /* Reverse-rain doodles (shared) [web:316][web:332][web:313] */
+    /* Reverse-rain doodles [web:316][web:332][web:313] */
     .doodle-bg {
       position:fixed;
       top:0;
@@ -104,7 +104,7 @@
       display:none;
     }
 
-    /* First view: lighter royal colors */
+    /* First view styles */
     .tagline-top {
       font-size:clamp(0.85rem,3.5vw,1rem);
       color:#8b3b2a;
@@ -177,7 +177,7 @@
     }
     @keyframes swing { 0%,100%{transform:rotate(-10deg);} 50%{transform:rotate(10deg);} }
 
-    /* Second view: deeper royal */
+    /* Second view styles */
     .content-invite {
       width:100%;
       max-width:560px;
@@ -267,6 +267,7 @@
 
     .heart-small { color:#f8dca0; font-size:1.1rem; margin:10px 0; }
 
+    /* Our story paragraph */
     .our-story {
       margin-top: 12px;
       margin-bottom: 20px;
@@ -274,13 +275,75 @@
       line-height: 1.8;
       color: #f3e7d5;
       font-style: italic;
-    } /* short but meaningful story [web:317][web:260][web:318] */
+    } /* [web:317][web:260][web:318] */
 
     .cheers-msg {
       font-size: 0.9rem;
       color: #f3e7d5;
       line-height: 1.8;
       margin: 12px 0 22px;
+    }
+
+    /* New "Our journey" timeline section [web:336][web:346][web:343][web:348] */
+    .journey-section {
+      margin-top: 18px;
+      margin-bottom: 24px;
+    }
+
+    .journey-title {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #f8dca0;
+      margin-bottom: 10px;
+    }
+
+    .journey-subtitle {
+      font-size: 0.85rem;
+      color: #f3e7d5;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    .journey-flow {
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .journey-step {
+      flex:1;
+      text-align:center;
+    }
+
+    .journey-icon {
+      font-size:1.6rem;
+      margin-bottom:6px;
+      color:#f8dca0;
+    }
+
+    .journey-label {
+      font-size:0.82rem;
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      color:#fdf7ec;
+      margin-bottom:4px;
+      font-weight:600;
+    }
+
+    .journey-text {
+      font-size:0.8rem;
+      color:#f3e7d5;
+      line-height:1.6;
+    }
+
+    .journey-line {
+      height:2px;
+      background:linear-gradient(90deg,#f8dca0,#c47c3b,#f8dca0);
+      width:100%;
+      margin:12px 0 0;
+      border-radius:999px;
     }
 
     .details-block {
@@ -428,15 +491,16 @@
     .footer-hearts { margin-top:18px; color:#f8dca0; font-size:0.95rem; letter-spacing:4px; }
 
     @media (max-width:480px) {
+      .journey-flow { flex-direction:column; gap:10px; }
+      .journey-line { margin-top:8px; }
       .couple-names { font-size:2.7rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Reverse-rain doodles (shared for both views) [web:316][web:332][web:310][web:304][web:307] -->
+  <!-- Reverse-rain doodles [web:316][web:332][web:310][web:304][web:307] -->
   <div class="doodle-bg">
-    <!-- pigeons -->
     <div class="floater float-rain-slow" style="left:12%;top:60%;font-size:1.8rem;color:#f8dca0;">
       <span class="pigeon-wings">🕊️</span>
     </div>
@@ -444,22 +508,19 @@
       <span class="pigeon-wings">🕊️</span>
     </div>
 
-    <!-- bells -->
     <div class="floater float-rain-slow" style="left:24%;top:70%;font-size:1.5rem;color:#f8dca0;">🔔</div>
     <div class="floater float-rain-fast" style="left:66%;top:75%;font-size:1.4rem;color:#c47c3b;">🔔</div>
 
-    <!-- tree / star / santa -->
     <div class="floater float-rain-slow" style="left:40%;top:78%;font-size:1.7rem;color:#f8dca0;">🎄</div>
     <div class="floater float-rain-fast" style="left:55%;top:82%;font-size:1.4rem;color:#f8dca0;">⭐</div>
     <div class="floater float-rain-slow" style="left:20%;top:85%;font-size:1.5rem;color:#fdf7ec;">🎅🦌</div>
     <div class="floater float-rain-fast" style="left:84%;top:88%;font-size:1.3rem;color:#fdf7ec;">🛷</div>
 
-    <!-- tiny sparkles -->
     <div class="floater float-rain-slow" style="left:32%;top:68%;font-size:1rem;color:#f8dca0;">✧</div>
     <div class="floater float-rain-fast" style="left:90%;top:72%;font-size:1.1rem;color:#c47c3b;">✦</div>
   </div>
 
-  <!-- Screen 1: Welcome -->
+  <!-- Screen 1 -->
   <div class="screen-main" id="screen-main">
     <p class="tagline-top">✦ You Are Cordially Invited ✦</p>
     <h1 class="main-title">Indupallis<br/>Invitation</h1>
@@ -469,7 +530,7 @@
     <p class="tagline-bottom">Royal colors, warm hearts &amp; a surprise second page</p>
   </div>
 
-  <!-- Screen 2: Engagement -->
+  <!-- Screen 2 -->
   <div class="screen-invite" id="screen-invite">
     <div class="content-invite">
       <div class="invite-inner">
@@ -495,7 +556,7 @@
 
         <div class="heart-small">♥</div>
 
-        <!-- Our story section -->
+        <!-- Our story paragraph -->
         <p class="our-story">
           Our story began with a simple hello that turned into shared laughs,
           long conversations and a beautiful journey we never expected. From
@@ -505,11 +566,42 @@
           you as part of this journey toward forever.
         </p>
 
+        <!-- New journey flow section -->
+        <div class="journey-section">
+          <p class="journey-title">Our journey</p>
+          <p class="journey-subtitle">
+            A small story of how we met, fell in love and reached this engagement day.
+          </p>
+          <div class="journey-flow">
+            <div class="journey-step">
+              <div class="journey-icon">👫</div>
+              <div class="journey-label">We met</div>
+              <div class="journey-text">
+                Two hearts crossed paths and a simple hello became the start of something special.
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="journey-icon">🛤️</div>
+              <div class="journey-label">Beautiful journey</div>
+              <div class="journey-text">
+                Laughter, late-night talks, prayers and dreams slowly wove our beautiful love story.
+              </div>
+            </div>
+            <div class="journey-step">
+              <div class="journey-icon">💍</div>
+              <div class="journey-label">Engagement</div>
+              <div class="journey-text">
+                Today we promise forever, marking this engagement as the highlight of our journey.
+              </div>
+            </div>
+          </div>
+          <div class="journey-line"></div>
+        </div>
+
         <p class="cheers-msg">
           With hearts full of love and gratitude, we invite you to join us in
           showering your warm wishes and blessings upon the couple as they begin
-          this beautiful journey together — lovingly invited by the Indupalli
-          family and big brother Praveen Chand Indupalli.
+          this beautiful journey together.
         </p>
 
         <div class="details-block">
@@ -563,7 +655,10 @@
           </p>
         </div>
 
-        <p class="blessings">With love and blessings,</p>
+        <p class="blessings">
+          Please bless us with your presence and heartfelt wishes as we step into this new chapter.
+        </p> <!-- blessing wording instead of big brother line [web:344][web:342][web:323] -->
+
         <p class="parents">
           Mr. Indupalli Sudheer &amp;<br />
           Mrs Indupalli Jaya Mani
