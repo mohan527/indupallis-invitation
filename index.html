@@ -33,9 +33,9 @@
       overflow-x: hidden; /* hide horizontal overflow */
     }
 
-    /* Dark engagement theme for second view - single dark-blue background */
+    /* Dark engagement theme for second view - single solid dark-blue background */
     body.dark-mode {
-      background: linear-gradient(160deg, #020617 0%, #0f172a 40%, #1e293b 100%);
+      background: #020617;
     }
 
     /* Shared floating doodles */
@@ -92,7 +92,7 @@
       display:none;   /* shown after button click */
     }
 
-    /* Welcome screen styles (your original theme) */
+    /* Welcome screen styles */
     .tagline-top {
       font-size:clamp(0.8rem,3.5vw,1rem);
       color:#7c3aed;
@@ -159,7 +159,7 @@
     }
     @keyframes swing { 0%,100%{transform:rotate(-12deg);} 50%{transform:rotate(12deg);} }
 
-    /* Engagement card styles (simple dark theme) */
+    /* Engagement card styles (solid dark theme) */
     .content-invite {
       width:100%;
       max-width:560px;
@@ -171,7 +171,7 @@
     }
 
     .card {
-      background: rgba(15,23,42,0.9); /* solid dark card */
+      background: #0f172a;        /* solid dark card */
       border-radius: 24px;
       max-width: 520px;
       width: 100%;
@@ -629,26 +629,17 @@
       if (!audio) return;
       audio.volume = 0.5;
 
-      function startMusic() {
-        audio.play().catch(function () {});
-        document.removeEventListener('click', startMusic);
-        document.removeEventListener('touchstart', startMusic);
-        document.removeEventListener('scroll', startMusic);
-      }
-
-      // Try autoplay once
-      audio.play().catch(function (err) {
-        console.log('Autoplay blocked, waiting for interaction:', err);
-        document.addEventListener('click', startMusic);
-        document.addEventListener('touchstart', startMusic);
-        document.addEventListener('scroll', startMusic);
-      });
-
       if (openBtn) {
         openBtn.addEventListener('click', function () {
+          // show second view
           mainScreen.style.display = 'none';
           inviteScreen.style.display = 'flex';
-          body.classList.add('dark-mode');  // switch background to dark
+          body.classList.add('dark-mode');
+
+          // start music AFTER explicit user tap (better for mobile)
+          audio.play().catch(function () {
+            // if still blocked, user can tap again anywhere
+          });
         });
       }
 
@@ -656,7 +647,7 @@
         backBtn.addEventListener('click', function () {
           inviteScreen.style.display = 'none';
           mainScreen.style.display = 'flex';
-          body.classList.remove('dark-mode'); // back to pastel
+          body.classList.remove('dark-mode');
         });
       }
     });
