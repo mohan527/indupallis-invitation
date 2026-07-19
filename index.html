@@ -16,10 +16,11 @@
     * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
     html, body { height: 100%; }
 
-    /* First view: royal cream */
+    /* First view: royal cream, fixed background */
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #fdf7ec 0%, #f5eee6 45%, #f0e4d6 100%);
+      background: linear-gradient(180deg, #fdf7ec 0%, #f5eee6 50%, #f0e4d6 100%);
+      background-attachment: fixed;
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
@@ -34,10 +35,11 @@
       color:#2a1a16;
     }
 
-    /* Second view: royal maroon + navy + gold [web:326][web:331][web:334] */
+    /* Second view: royal maroon + navy + gold */
     body.dark-mode {
       background: radial-gradient(circle at 15% 0%, #f8dca0 0%, #3C0008 40%, #1b2038 100%);
       background-size: 200% 200%;
+      background-attachment: fixed;
       animation: royalGradient 32s ease-in-out infinite;
       color:#fdf7ec;
     }
@@ -48,7 +50,7 @@
       100% { background-position: 0% 0%; }
     }
 
-    /* Reverse-rain doodles [web:316][web:332][web:313] */
+    /* Reverse-rain doodles */
     .doodle-bg {
       position:fixed;
       top:0;
@@ -104,25 +106,27 @@
       display:none;
     }
 
-    /* First view styles */
+    /* First view */
     .tagline-top {
       font-size:clamp(0.85rem,3.5vw,1rem);
       color:#8b3b2a;
-      letter-spacing:5px;
+      letter-spacing:4px;
       text-transform:uppercase;
       opacity:0.9;
       margin-bottom:6px;
+      white-space:nowrap;
     }
 
     .main-title {
       font-family:'Playfair Display',serif;
-      font-size:clamp(1.8rem,6.5vw,3rem);
+      font-size:clamp(2rem,5vw,2.6rem);
       color:#3b1b15;
-      letter-spacing:2px;
+      letter-spacing:1.5px;
       text-shadow:0 4px 18px rgba(80,40,26,0.25);
       line-height:1.2;
       padding:0 10px;
-      margin-bottom:8px;
+      margin-bottom:10px;
+      white-space:nowrap;
     }
 
     .rings-doodle {
@@ -177,7 +181,7 @@
     }
     @keyframes swing { 0%,100%{transform:rotate(-10deg);} 50%{transform:rotate(10deg);} }
 
-    /* Second view styles */
+    /* Second view */
     .content-invite {
       width:100%;
       max-width:560px;
@@ -267,24 +271,7 @@
 
     .heart-small { color:#f8dca0; font-size:1.1rem; margin:10px 0; }
 
-    /* Our story paragraph */
-    .our-story {
-      margin-top: 12px;
-      margin-bottom: 20px;
-      font-size: 0.9rem;
-      line-height: 1.8;
-      color: #f3e7d5;
-      font-style: italic;
-    } /* [web:317][web:260][web:318] */
-
-    .cheers-msg {
-      font-size: 0.9rem;
-      color: #f3e7d5;
-      line-height: 1.8;
-      margin: 12px 0 22px;
-    }
-
-    /* New "Our journey" timeline section [web:336][web:346][web:343][web:348] */
+    /* Journey section */
     .journey-section {
       margin-top: 18px;
       margin-bottom: 24px;
@@ -344,6 +331,13 @@
       width:100%;
       margin:12px 0 0;
       border-radius:999px;
+    }
+
+    .cheers-msg {
+      font-size: 0.9rem;
+      color: #f3e7d5;
+      line-height: 1.8;
+      margin: 12px 0 18px;
     }
 
     .details-block {
@@ -494,12 +488,13 @@
       .journey-flow { flex-direction:column; gap:10px; }
       .journey-line { margin-top:8px; }
       .couple-names { font-size:2.7rem; }
+      .main-title { font-size:clamp(1.7rem,5vw,2.2rem); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Reverse-rain doodles [web:316][web:332][web:310][web:304][web:307] -->
+  <!-- Reverse-rain doodles -->
   <div class="doodle-bg">
     <div class="floater float-rain-slow" style="left:12%;top:60%;font-size:1.8rem;color:#f8dca0;">
       <span class="pigeon-wings">🕊️</span>
@@ -522,12 +517,12 @@
 
   <!-- Screen 1 -->
   <div class="screen-main" id="screen-main">
-    <p class="tagline-top">✦ You Are Cordially Invited ✦</p>
-    <h1 class="main-title">Indupallis<br/>Invitation</h1>
+    <p class="tagline-top">YOU ARE CORDIALLY INVITED</p>
+    <h1 class="main-title">Indupallis Invitation</h1>
     <div class="rings-doodle">💍 💍</div>
-    <button class="invite-btn" id="openInviteBtn">💌 Open Invitation</button>
+    <button class="invite-btn" id="openInviteBtn">OPEN INVITATION</button>
     <div class="bells">🔔 🔔</div>
-    <p class="tagline-bottom">Royal colors, warm hearts &amp; a surprise second page</p>
+    <p class="tagline-bottom">Tap to see the engagement details</p>
   </div>
 
   <!-- Screen 2 -->
@@ -556,17 +551,13 @@
 
         <div class="heart-small">♥</div>
 
-        <!-- Our story paragraph -->
-        <p class="our-story">
-          Our story began with a simple hello that turned into shared laughs,
-          long conversations and a beautiful journey we never expected. From
-          that first meeting to this special day, every step brought us closer
-          to forever. Today, as we celebrate our engagement, we are grateful
-          for the love God has written into our lives — and so happy to have
-          you as part of this journey toward forever.
+        <!-- Moved hearts-full-of-love paragraph BEFORE journey -->
+        <p class="cheers-msg">
+          With hearts full of love and gratitude, we invite you to join us in
+          showering your warm wishes and blessings upon the couple as they begin
+          this beautiful journey together.
         </p>
 
-        <!-- New journey flow section -->
         <div class="journey-section">
           <p class="journey-title">Our journey</p>
           <p class="journey-subtitle">
@@ -597,12 +588,6 @@
           </div>
           <div class="journey-line"></div>
         </div>
-
-        <p class="cheers-msg">
-          With hearts full of love and gratitude, we invite you to join us in
-          showering your warm wishes and blessings upon the couple as they begin
-          this beautiful journey together.
-        </p>
 
         <div class="details-block">
           <div class="details-row">
@@ -657,7 +642,7 @@
 
         <p class="blessings">
           Please bless us with your presence and heartfelt wishes as we step into this new chapter.
-        </p> <!-- blessing wording instead of big brother line [web:344][web:342][web:323] -->
+        </p>
 
         <p class="parents">
           Mr. Indupalli Sudheer &amp;<br />
