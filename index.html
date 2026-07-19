@@ -16,10 +16,10 @@
     * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
     html, body { height: 100%; }
 
-    /* Default: pastel welcome theme */
+    /* Default: cream welcome theme */
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(160deg, #dff6ff 0%, #e8d5f5 50%, #c8e8ff 100%);
+      background: #f5eee6;  /* warm cream */
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
@@ -29,18 +29,22 @@
       text-align: center;
       padding: 20px;
       position: relative;
-      overflow-y: auto;   /* allow vertical scrolling */
-      overflow-x: hidden; /* hide horizontal overflow */
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
-    /* Dark engagement theme for second view - single solid dark-blue background */
+    /* Engagement view: deep maroon background */
     body.dark-mode {
-      background: #020617;
+      background: linear-gradient(180deg, #3a0f19 0%, #26030c 40%, #1a0208 100%);
     }
 
     /* Shared floating doodles */
     .doodle-bg { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
-    .floater { position:absolute; animation: floatUp 8s linear infinite; opacity:0.35; }
+    .floater {
+      position:absolute;
+      animation: floatUp 8s ease-in-out infinite;
+      opacity:0.3;
+    }
     .floater:nth-child(2)  { left:8%;  animation-delay:0s;    animation-duration:9s; }
     .floater:nth-child(3)  { left:20%; animation-delay:1.5s;  animation-duration:7s; }
     .floater:nth-child(4)  { left:35%; animation-delay:3s;    animation-duration:10s; }
@@ -51,11 +55,20 @@
     .floater:nth-child(9)  { left:15%; animation-delay:6s;    animation-duration:11s; }
     .floater:nth-child(10) { left:75%; animation-delay:2.5s;  animation-duration:8s; }
 
+    /* Smooth up–down float (no leaving screen) */
     @keyframes floatUp {
-      0%   { transform: translateY(110vh) scale(1);   opacity: 0; }
-      10%  { opacity: 0.35; }
-      90%  { opacity: 0.35; }
-      100% { transform: translateY(-10vh) scale(1.1); opacity: 0; }
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: translateY(-25px) scale(1.05);
+        opacity: 0.35;
+      }
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+      }
     }
 
     @keyframes flapWings { 0%,100%{transform:scaleY(1);} 50%{transform:scaleY(0.6);} }
@@ -92,22 +105,22 @@
       display:none;   /* shown after button click */
     }
 
-    /* Welcome screen styles */
+    /* Welcome screen styles - cream/maroon */
     .tagline-top {
       font-size:clamp(0.8rem,3.5vw,1rem);
-      color:#7c3aed;
+      color:#a64a36;
       letter-spacing:5px;
       text-transform:uppercase;
-      opacity:0.8;
+      opacity:0.9;
       margin-bottom:4px;
     }
 
     .main-title {
       font-family:'Georgia',serif;
       font-size:clamp(1.6rem,6.5vw,2.8rem);
-      color:#5b3a8a;
+      color:#5b2a1d;
       letter-spacing:2px;
-      text-shadow:1px 1px 10px rgba(150,100,220,0.2);
+      text-shadow:1px 1px 10px rgba(120,60,40,0.25);
       line-height:1.3;
       padding:0 10px;
       margin-bottom:6px;
@@ -121,16 +134,16 @@
       display:inline-block;
       width:90%; max-width:300px;
       padding:17px 30px;
-      background:linear-gradient(135deg,#a78bfa,#7dd3fc);
-      color:#fff;
+      background:linear-gradient(135deg,#a64a36,#c47c3b);
+      color:#fff7ec;
       font-size:clamp(1rem,4.5vw,1.15rem);
       font-weight:bold;
       font-family:'Georgia',serif;
       border-radius:50px;
       text-decoration:none;
       letter-spacing:1.5px;
-      box-shadow:0 6px 25px rgba(139,92,246,0.35);
-      border:2px solid rgba(255,255,255,0.5);
+      box-shadow:0 6px 25px rgba(128,63,34,0.6);
+      border:2px solid rgba(248,220,160,0.7);
       touch-action:manipulation;
       cursor:pointer;
       transition:transform 0.2s, box-shadow 0.2s;
@@ -138,16 +151,16 @@
     }
     .invite-btn:active { transform:scale(0.96); }
     @media (hover:hover) {
-      .invite-btn:hover { transform:translateY(-4px) scale(1.03); box-shadow:0 12px 35px rgba(139,92,246,0.5); }
+      .invite-btn:hover { transform:translateY(-4px) scale(1.03); box-shadow:0 12px 35px rgba(128,63,34,0.8); }
     }
 
     .tagline-bottom {
       font-size:clamp(0.75rem,3vw,0.9rem);
-      color:#6b7280;
+      color:#7b6253;
       letter-spacing:2px;
       margin-top:14px;
       font-style:italic;
-      opacity:0.85;
+      opacity:0.9;
     }
 
     .bells {
@@ -159,7 +172,7 @@
     }
     @keyframes swing { 0%,100%{transform:rotate(-12deg);} 50%{transform:rotate(12deg);} }
 
-    /* Engagement card styles (solid dark theme) */
+    /* Engagement card styles - maroon/gold/cream */
     .content-invite {
       width:100%;
       max-width:560px;
@@ -172,17 +185,17 @@
     }
 
     .card {
-      background: #0f172a;
+      background: #3a0f19;
       border-radius: 24px;
       max-width: 520px;
       width: 100%;
       padding: 40px 26px 30px;
       text-align: center;
       box-shadow: 0 25px 70px rgba(0,0,0,0.6);
-      border: 1.5px solid rgba(125,211,252,0.3);
+      border: 1.5px solid rgba(248,220,160,0.7);
       position: relative;
       margin-bottom: 16px;
-      color: #e5f2ff;
+      color: #f5eee6;
     }
 
     .arch {
@@ -192,37 +205,37 @@
       transform: translateX(-50%);
       width: 260px;
       height: 180px;
-      border: 1.5px solid #facc6b;
+      border: 1.5px solid #f8dca0;
       border-bottom: none;
       border-radius: 130px 130px 0 0;
       pointer-events: none;
-      opacity: 0.5;
+      opacity: 0.8;
     }
 
-    .cross { font-size:1.5rem; color:#fbbf24; margin-bottom:10px; margin-top:5px; }
+    .cross { font-size:1.5rem; color:#f8dca0; margin-bottom:10px; margin-top:5px; }
 
     .bible-quote {
       font-style: italic;
       font-size: 0.8rem;
-      color: #e5e7eb;
+      color: #f3e7d5;
       line-height: 1.6;
       margin-bottom: 18px;
     }
 
-    .divider-heart { color:#facc6b; font-size:0.85rem; letter-spacing:3px; margin:8px 0; }
+    .divider-heart { color:#f8dca0; font-size:0.85rem; letter-spacing:3px; margin:8px 0; }
 
     .please-join {
       font-size: 0.78rem;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: #bfdbfe;
+      color: #f8dca0;
       margin-bottom: 6px;
     }
 
     .engagement-title {
       font-size: 2rem;
       font-family: 'Playfair Display', serif;
-      color: #fde68a;
+      color: #f8dca0;
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
@@ -231,17 +244,17 @@
     .celebration {
       font-family: 'Great Vibes', cursive;
       font-size: 2.2rem;
-      color: #e0f2fe;
+      color: #f3e7d5;
       line-height: 1;
       margin-top: 4px;
     }
 
-    .leaf-divider { font-size:0.9rem; color:#facc6b; margin:10px 0; }
+    .leaf-divider { font-size:0.9rem; color:#f8dca0; margin:10px 0; }
 
     .couple-names {
       font-family: 'Playfair Display', serif;
       font-size: 3.2rem;
-      color: #f9fafb;
+      color: #fdf7ec;
       font-weight: 700;
       line-height: 1.15;
       margin: 14px 0 5px;
@@ -250,16 +263,16 @@
     .amp {
       font-family: 'Playfair Display', serif;
       font-size: 2.5rem;
-      color: #facc6b;
+      color: #f8dca0;
       display: block;
       margin: 4px 0;
     }
 
-    .heart-small { color:#fbbf24; font-size:1rem; margin:10px 0; }
+    .heart-small { color:#f8dca0; font-size:1rem; margin:10px 0; }
 
     .cheers-msg {
       font-size: 0.88rem;
-      color: #e5e7eb;
+      color: #f3e7d5;
       line-height: 1.7;
       margin: 10px 0 18px;
     }
@@ -267,35 +280,35 @@
     .details-block {
       margin-top: 8px;
       padding-top: 12px;
-      border-top: 1px solid rgba(250,204,165,0.4);
+      border-top: 1px solid rgba(248,220,160,0.5);
     }
 
     .details-row {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 0; /* equal columns */
+      gap: 0;
     }
 
     .detail-item {
       flex: 1;
       text-align: center;
       padding: 0 8px;
-      color: #e5f2ff;
-      border-left: 1px solid rgba(250,204,165,0.45);
+      color: #f5eee6;
+      border-left: 1px solid rgba(248,220,160,0.4);
     }
 
     .detail-item:first-child {
       border-left: none;
     }
 
-    .detail-icon { font-size:1.4rem; margin-bottom:6px; color:#fbbf24; }
+    .detail-icon { font-size:1.4rem; margin-bottom:6px; color:#f8dca0; }
 
     .detail-date-num {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       font-weight: 700;
-      color: #f9fafb;
+      color: #fdf7ec;
       line-height: 1;
     }
 
@@ -303,7 +316,7 @@
       font-size: 0.72rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: #bfdbfe;
+      color: #f8dca0;
       font-weight: 600;
     }
 
@@ -311,18 +324,18 @@
       font-size: 0.7rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: #fde68a;
+      color: #f8dca0;
       margin-top: 4px;
       font-weight: 600;
     }
 
-    .detail-time { font-size:1rem; font-weight:600; color:#f9fafb; }
+    .detail-time { font-size:1rem; font-weight:600; color:#fdf7ec; }
 
-    .detail-time-line { width:30px; height:1px; background:#facc6b; margin:6px auto; }
+    .detail-time-line { width:30px; height:1px; background:#f8dca0; margin:6px auto; }
 
     .detail-venue {
       font-size: 0.8rem;
-      color: #e5e7eb;
+      color: #f3e7d5;
       font-weight: 500;
       line-height: 1.5;
     }
@@ -332,10 +345,10 @@
       font-size: 0.7rem;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: #bfdbfe;
+      color: #f8dca0;
     }
 
-    .countdown-timer-small { font-size:0.8rem; color:#fde68a; margin-top:2px; }
+    .countdown-timer-small { font-size:0.8rem; color:#fdf7ec; margin-top:2px; }
 
     .venue-directions-btn {
       margin-top: 10px;
@@ -346,12 +359,12 @@
       font-size: 0.8rem;
       font-weight: 600;
       letter-spacing: 0.5px;
-      background: linear-gradient(135deg, #38bdf8, #1d4ed8);
-      color: #f9fafb;
-      box-shadow: 0 2px 8px rgba(37,99,235,0.5);
+      background: linear-gradient(135deg, #c47c3b, #8f4920);
+      color: #fdf7ec;
+      box-shadow: 0 2px 8px rgba(99,50,22,0.6);
       transition: all 0.2s;
     }
-    .venue-directions-btn:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(37,99,235,0.7); }
+    .venue-directions-btn:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(99,50,22,0.8); }
 
     .chief-guest-strip {
       margin-top: 16px;
@@ -359,38 +372,38 @@
       border-radius: 999px;
       background: radial-gradient(
         circle at 50% 0%,
-        rgba(250,250,250,0.18),
-        rgba(15,23,42,0.8)
+        rgba(248,220,160,0.3),
+        #3a0f19
       );
-      border: 1px solid rgba(252,211,77,0.5);
-      box-shadow: 0 10px 30px rgba(30,64,175,0.6);
+      border: 1px solid rgba(248,220,160,0.8);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
     }
 
     .chief-guest-intro {
       font-size: 0.78rem;
       letter-spacing: 2px;
       text-transform: uppercase;
-      color: #bfdbfe;
+      color: #f8dca0;
       margin-bottom: 4px;
     }
 
     .chief-guest-name-line {
       font-family: 'Playfair Display', serif;
       font-size: 1.2rem;
-      color: #fde68a;
+      color: #fdf7ec;
       font-weight: 700;
     }
 
     .chief-guest-title-line {
       font-size: 0.85rem;
-      color: #e5e7eb;
+      color: #f3e7d5;
       margin-top: 2px;
     }
 
     .blessings {
       font-style: italic;
       font-size: 0.82rem;
-      color: #bfdbfe;
+      color: #f8dca0;
       margin-top: 18px;
       margin-bottom: 4px;
     }
@@ -398,12 +411,12 @@
     .parents {
       font-size: 0.92rem;
       font-weight: 600;
-      color: #e5f2ff;
+      color: #fdf7ec;
       line-height: 1.8;
       margin-bottom: 20px;
     }
 
-    .footer-hearts { margin-top:18px; color:#facc6b; font-size:0.9rem; letter-spacing:4px; }
+    .footer-hearts { margin-top:18px; color:#f8dca0; font-size:0.9rem; letter-spacing:4px; }
 
     @media (max-width:480px) {
       .card { padding: 32px 18px 24px; }
@@ -415,42 +428,42 @@
 
   <!-- Floating doodles -->
   <div class="doodle-bg">
-    <div class="floater" style="left:8%;font-size:2rem;"><span class="pigeon-wings">🕊️</span></div>
-    <div class="floater" style="left:72%;font-size:1.6rem;"><span class="pigeon-wings">🕊️</span></div>
-    <div class="floater" style="left:40%;font-size:2.2rem;"><span class="pigeon-wings">🕊️</span></div>
-    <div class="floater" style="left:20%;font-size:1.8rem;">💍</div>
-    <div class="floater" style="left:60%;font-size:1.4rem;">💍</div>
-    <div class="floater" style="left:85%;font-size:1.8rem;">🔔</div>
-    <div class="floater" style="left:30%;font-size:1.5rem;">🔔</div>
-    <div class="floater" style="left:50%;font-size:1.4rem;color:#c084fc;">♥</div>
-    <div class="floater" style="left:15%;font-size:1rem;color:#7dd3fc;">♥</div>
-    <div class="floater" style="left:78%;font-size:1.2rem;color:#a78bfa;">♥</div>
+    <div class="floater" style="left:8%;font-size:2rem;color:#f8dca0;"><span class="pigeon-wings">✶</span></div>
+    <div class="floater" style="left:72%;font-size:1.6rem;color:#c47c3b;"><span class="pigeon-wings">✶</span></div>
+    <div class="floater" style="left:40%;font-size:2.2rem;color:#f8dca0;"><span class="pigeon-wings">✶</span></div>
+    <div class="floater" style="left:20%;font-size:1.8rem;color:#c47c3b;">✦</div>
+    <div class="floater" style="left:60%;font-size:1.4rem;color:#f8dca0;">✦</div>
+    <div class="floater" style="left:85%;font-size:1.8rem;color:#c47c3b;">✦</div>
+    <div class="floater" style="left:30%;font-size:1.5rem;color:#f8dca0;">✦</div>
+    <div class="floater" style="left:50%;font-size:1.4rem;color:#c47c3b;">✦</div>
+    <div class="floater" style="left:15%;font-size:1rem;color:#f8dca0;">✧</div>
+    <div class="floater" style="left:78%;font-size:1.2rem;color:#c47c3b;">✧</div>
   </div>
 
   <!-- Corner SVGs -->
   <svg class="corner corner-top-left" width="80" height="50" viewBox="0 0 80 50">
-    <circle cx="20" cy="25" r="18" fill="none" stroke="#7c3aed" stroke-width="3"/>
-    <circle cx="42" cy="25" r="18" fill="none" stroke="#0ea5e9" stroke-width="3"/>
+    <circle cx="20" cy="25" r="18" fill="none" stroke="#a64a36" stroke-width="3"/>
+    <circle cx="42" cy="25" r="18" fill="none" stroke="#c47c3b" stroke-width="3"/>
   </svg>
   <svg class="corner corner-top-right" width="80" height="50" viewBox="0 0 80 50">
-    <circle cx="20" cy="25" r="18" fill="none" stroke="#7c3aed" stroke-width="3"/>
-    <circle cx="42" cy="25" r="18" fill="none" stroke="#0ea5e9" stroke-width="3"/>
+    <circle cx="20" cy="25" r="18" fill="none" stroke="#a64a36" stroke-width="3"/>
+    <circle cx="42" cy="25" r="18" fill="none" stroke="#c47c3b" stroke-width="3"/>
   </svg>
   <svg class="corner corner-bottom-left" width="60" height="60" viewBox="0 0 60 60">
-    <circle cx="30" cy="30" r="10" fill="#f0abfc"/>
-    <circle cx="44" cy="20" r="10" fill="#e879f9"/>
-    <circle cx="44" cy="40" r="10" fill="#e879f9"/>
-    <circle cx="16" cy="20" r="10" fill="#e879f9"/>
-    <circle cx="16" cy="40" r="10" fill="#e879f9"/>
-    <circle cx="30" cy="30" r="7" fill="#fde68a"/>
+    <circle cx="30" cy="30" r="10" fill="#f8dca0"/>
+    <circle cx="44" cy="20" r="10" fill="#c47c3b"/>
+    <circle cx="44" cy="40" r="10" fill="#c47c3b"/>
+    <circle cx="16" cy="20" r="10" fill="#c47c3b"/>
+    <circle cx="16" cy="40" r="10" fill="#c47c3b"/>
+    <circle cx="30" cy="30" r="7" fill="#3a0f19"/>
   </svg>
   <svg class="corner corner-bottom-right" width="60" height="60" viewBox="0 0 60 60">
-    <circle cx="30" cy="30" r="10" fill="#bfdbfe"/>
-    <circle cx="44" cy="20" r="10" fill="#93c5fd"/>
-    <circle cx="44" cy="40" r="10" fill="#93c5fd"/>
-    <circle cx="16" cy="20" r="10" fill="#93c5fd"/>
-    <circle cx="16" cy="40" r="10" fill="#93c5fd"/>
-    <circle cx="30" cy="30" r="7" fill="#fde68a"/>
+    <circle cx="30" cy="30" r="10" fill="#f8dca0"/>
+    <circle cx="44" cy="20" r="10" fill="#c47c3b"/>
+    <circle cx="44" cy="40" r="10" fill="#c47c3b"/>
+    <circle cx="16" cy="20" r="10" fill="#c47c3b"/>
+    <circle cx="16" cy="40" r="10" fill="#c47c3b"/>
+    <circle cx="30" cy="30" r="7" fill="#3a0f19"/>
   </svg>
 
   <!-- Screen 1: Main Invitation -->
@@ -493,8 +506,7 @@
         <p class="cheers-msg">
           With hearts full of love and gratitude, we invite you to join us in
           showering your warm wishes and blessings upon the couple as they begin
-          this beautiful journey together — lovingly invited by the Indupalli
-          family and big brother Praveen Chand Indupalli.
+          this beautiful journey together.
         </p>
 
         <div class="details-block">
