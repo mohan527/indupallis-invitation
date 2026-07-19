@@ -16,10 +16,10 @@
     * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
     html, body { height: 100%; }
 
-    /* Default: cream welcome theme */
+    /* Default: royal cream welcome */
     body {
       font-family: 'Poppins', sans-serif;
-      background: #f5eee6;
+      background: linear-gradient(180deg, #fdf7ec 0%, #f5eee6 40%, #f0e4d6 100%);
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
@@ -31,27 +31,24 @@
       position: relative;
       overflow-y: auto;
       overflow-x: hidden;
+      color:#2a1a16;
     }
 
-    /* Engagement view: full maroon background with gentle movement */
+    /* Engagement view: deeper royal maroon/navy with gold [web:302][web:305][web:308][web:311] */
     body.dark-mode {
-      background: linear-gradient(
-        180deg,
-        #3C0008 0%,
-        #510400 50%,
-        #3C0008 100%
-      );
+      background: radial-gradient(circle at 15% 0%, #f8dca0 0%, #3C0008 35%, #1b2038 100%);
       background-size: 200% 200%;
-      animation: maroonGradient 30s ease-in-out infinite;
-    } /* subtle animated gradient [web:270][web:274][web:268] */
+      animation: maroonNavyGradient 32s ease-in-out infinite;
+      color:#fdf7ec;
+    }
 
-    @keyframes maroonGradient {
+    @keyframes maroonNavyGradient {
       0%   { background-position: 0% 0%; }
       50%  { background-position: 100% 50%; }
       100% { background-position: 0% 0%; }
     }
 
-    /* Floating doodles */
+    /* Floating doodles layer (shared) */
     .doodle-bg {
       position:fixed;
       top:0;
@@ -64,44 +61,35 @@
 
     .floater {
       position:absolute;
-      opacity:0.3;
+      opacity:0.35;
     }
 
-    /* Up–down only */
     .float-ud {
-      animation: floatUpDown 8s ease-in-out infinite;
+      animation: floatUpDown 10s ease-in-out infinite;
     }
 
-    /* Up–down + slight left–right */
     .float-xy {
-      animation: floatUpDownSide 10s ease-in-out infinite;
+      animation: floatUpDownSide 14s ease-in-out infinite;
     }
 
-    /* Keyframes for vertical float [web:283][web:284][web:286][web:293][web:297] */
     @keyframes floatUpDown {
       0%   { transform: translateY(0) scale(1); }
-      50%  { transform: translateY(-25px) scale(1.05); }
+      50%  { transform: translateY(-22px) scale(1.05); }
       100% { transform: translateY(0) scale(1); }
     }
 
-    /* Keyframes for vertical + horizontal float [web:291][web:296][web:297] */
     @keyframes floatUpDownSide {
       0%   { transform: translate(0, 0) scale(1); }
-      25%  { transform: translate(10px, -15px) scale(1.03); }
-      50%  { transform: translate(0, -25px) scale(1.05); }
-      75%  { transform: translate(-10px, -15px) scale(1.03); }
+      25%  { transform: translate(10px, -16px) scale(1.03); }
+      50%  { transform: translate(0, -26px) scale(1.06); }
+      75%  { transform: translate(-10px, -16px) scale(1.03); }
       100% { transform: translate(0, 0) scale(1); }
     }
 
     @keyframes flapWings { 0%,100%{transform:scaleY(1);} 50%{transform:scaleY(0.6);} }
-    .pigeon-wings { display:inline-block; animation: flapWings 0.6s ease-in-out infinite; transform-origin:center; }
+    .pigeon-wings { display:inline-block; animation: flapWings 0.7s ease-in-out infinite; transform-origin:center; }
 
-    /* Corner SVGs */
-    svg.corner { position:fixed; z-index:0; opacity:0.18; pointer-events:none; }
-    svg.corner-top-left  { top:10px;  left:10px; }
-    svg.corner-top-right { top:10px;  right:10px; transform:scaleX(-1); }
-    svg.corner-bottom-left  { bottom:10px; left:10px; }
-    svg.corner-bottom-right { bottom:10px; right:10px; }
+    /* No corner doodles – cleaner edge */
 
     /* Screens */
     .screen-main,
@@ -127,77 +115,80 @@
       display:none;
     }
 
-    /* Welcome screen styles */
+    /* Welcome screen (first view) – lighter royal feel */
     .tagline-top {
-      font-size:clamp(0.8rem,3.5vw,1rem);
-      color:#a64a36;
+      font-size:clamp(0.85rem,3.5vw,1rem);
+      color:#8b3b2a;
       letter-spacing:5px;
       text-transform:uppercase;
       opacity:0.9;
-      margin-bottom:4px;
+      margin-bottom:6px;
     }
 
     .main-title {
-      font-family:'Georgia',serif;
-      font-size:clamp(1.6rem,6.5vw,2.8rem);
-      color:#5b2a1d;
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.8rem,6.5vw,3rem);
+      color:#3b1b15;
       letter-spacing:2px;
-      text-shadow:1px 1px 10px rgba(120,60,40,0.25);
-      line-height:1.3;
+      text-shadow:0 4px 18px rgba(80,40,26,0.25);
+      line-height:1.2;
       padding:0 10px;
-      margin-bottom:6px;
-      text-align:center;
+      margin-bottom:8px;
     }
 
-    .rings-doodle { font-size:clamp(1.6rem,6vw,2.2rem); margin:8px 0; animation:pulse 2s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.12);} }
+    .rings-doodle {
+      font-size:clamp(1.7rem,6vw,2.3rem);
+      margin:10px 0;
+      animation:pulse 2.3s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.15);} }
 
     .invite-btn {
       display:inline-block;
-      width:90%; max-width:300px;
-      padding:17px 30px;
-      background:linear-gradient(135deg,#a64a36,#c47c3b);
+      width:90%; max-width:320px;
+      padding:18px 30px;
+      background:linear-gradient(135deg,#8b3b2a,#c47c3b);
       color:#fff7ec;
       font-size:clamp(1rem,4.5vw,1.15rem);
       font-weight:bold;
-      font-family:'Georgia',serif;
+      font-family:'Playfair Display',serif;
       border-radius:50px;
       text-decoration:none;
-      letter-spacing:1.5px;
-      box-shadow:0 6px 25px rgba(128,63,34,0.6);
-      border:2px solid rgba(248,220,160,0.7);
+      letter-spacing:1.8px;
+      box-shadow:0 10px 28px rgba(128,63,34,0.55);
+      border:2px solid rgba(248,220,160,0.85);
       touch-action:manipulation;
       cursor:pointer;
       transition:transform 0.2s, box-shadow 0.2s;
-      margin-top:10px;
+      margin-top:12px;
     }
     .invite-btn:active { transform:scale(0.96); }
     @media (hover:hover) {
       .invite-btn:hover {
-        transform:translateY(-4px) scale(1.03);
-        box-shadow:0 12px 35px rgba(128,63,34,0.8);
+        transform:translateY(-3px) scale(1.03);
+        box-shadow:0 14px 36px rgba(128,63,34,0.8);
       }
     }
 
     .tagline-bottom {
-      font-size:clamp(0.75rem,3vw,0.9rem);
+      font-size:clamp(0.8rem,3vw,1rem);
       color:#7b6253;
       letter-spacing:2px;
-      margin-top:14px;
+      margin-top:16px;
       font-style:italic;
-      opacity:0.9;
+      opacity:0.95;
     }
 
     .bells {
-      font-size:clamp(1.2rem,5vw,1.6rem);
-      margin-top:6px;
-      animation:swing 1.4s ease-in-out infinite;
+      font-size:clamp(1.4rem,5vw,1.8rem);
+      margin-top:8px;
+      animation:swing 1.5s ease-in-out infinite;
       display:inline-block;
       transform-origin:top center;
     }
-    @keyframes swing { 0%,100%{transform:rotate(-12deg);} 50%{transform:rotate(12deg);} }
+    @keyframes swing { 0%,100%{transform:rotate(-10deg);} 50%{transform:rotate(10deg);} }
 
-    /* Engagement view: text directly on background */
+    /* Engagement view (second) – deeper royal look */
     .content-invite {
       width:100%;
       max-width:560px;
@@ -206,29 +197,39 @@
       align-items:center;
       margin-top:40px;
       margin-bottom:40px;
-      padding:0 12px;
+      padding:0 14px;
     }
 
     .invite-inner {
       width:100%;
       text-align:center;
-      color:#f5eee6;
+      color:#fdf7ec;
     }
 
-    .cross { font-size:1.5rem; color:#f8dca0; margin-bottom:10px; margin-top:5px; }
+    .cross {
+      font-size:1.7rem;
+      color:#f8dca0;
+      margin-bottom:10px;
+      margin-top:5px;
+    }
 
     .bible-quote {
       font-style: italic;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: #f3e7d5;
-      line-height: 1.6;
-      margin-bottom: 18px;
+      line-height: 1.7;
+      margin-bottom: 20px;
     }
 
-    .divider-heart { color:#f8dca0; font-size:0.85rem; letter-spacing:3px; margin:8px 0; }
+    .divider-heart {
+      color:#f8dca0;
+      font-size:0.9rem;
+      letter-spacing:3px;
+      margin:10px 0;
+    }
 
     .please-join {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       letter-spacing: 3px;
       text-transform: uppercase;
       color: #f8dca0;
@@ -236,7 +237,7 @@
     }
 
     .engagement-title {
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-family: 'Playfair Display', serif;
       color: #f8dca0;
       font-weight: 700;
@@ -246,44 +247,48 @@
 
     .celebration {
       font-family: 'Great Vibes', cursive;
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       color: #f3e7d5;
       line-height: 1;
-      margin-top: 4px;
+      margin-top: 5px;
     }
 
-    .leaf-divider { font-size:0.9rem; color:#f8dca0; margin:10px 0; }
+    .leaf-divider {
+      font-size:0.95rem;
+      color:#f8dca0;
+      margin:12px 0;
+    }
 
     .couple-names {
       font-family: 'Playfair Display', serif;
-      font-size: 3.2rem;
+      font-size: 3.3rem;
       color: #fdf7ec;
       font-weight: 700;
       line-height: 1.15;
-      margin: 14px 0 5px;
+      margin: 16px 0 6px;
     }
 
     .amp {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 2.6rem;
       color: #f8dca0;
       display: block;
       margin: 4px 0;
     }
 
-    .heart-small { color:#f8dca0; font-size:1rem; margin:10px 0; }
+    .heart-small { color:#f8dca0; font-size:1.1rem; margin:10px 0; }
 
     .cheers-msg {
-      font-size: 0.88rem;
+      font-size: 0.9rem;
       color: #f3e7d5;
-      line-height: 1.7;
-      margin: 10px 0 18px;
+      line-height: 1.8;
+      margin: 12px 0 22px;
     }
 
     .details-block {
-      margin-top: 8px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(248,220,160,0.5);
+      margin-top: 10px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(248,220,160,0.55);
     }
 
     .details-row {
@@ -297,26 +302,26 @@
       flex: 1;
       text-align: center;
       padding: 0 8px;
-      color: #f5eee6;
-      border-left: 1px solid rgba(248,220,160,0.4);
+      color: #fdf7ec;
+      border-left: 1px solid rgba(248,220,160,0.45);
     }
 
     .detail-item:first-child {
       border-left: none;
     }
 
-    .detail-icon { font-size:1.4rem; margin-bottom:6px; color:#f8dca0; }
+    .detail-icon { font-size:1.5rem; margin-bottom:6px; color:#f8dca0; }
 
     .detail-date-num {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-weight: 700;
       color: #fdf7ec;
       line-height: 1;
     }
 
     .detail-date-month {
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: #f8dca0;
@@ -324,7 +329,7 @@
     }
 
     .detail-date-day {
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       color: #f8dca0;
@@ -332,12 +337,12 @@
       font-weight: 600;
     }
 
-    .detail-time { font-size:1rem; font-weight:600; color:#fdf7ec; }
+    .detail-time { font-size:1.05rem; font-weight:600; color:#fdf7ec; }
 
     .detail-time-line { width:30px; height:1px; background:#f8dca0; margin:6px auto; }
 
     .detail-venue {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: #f3e7d5;
       font-weight: 500;
       line-height: 1.5;
@@ -345,13 +350,13 @@
 
     .countdown-label-small {
       margin-top: 8px;
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       letter-spacing: 1px;
       text-transform: uppercase;
       color: #f8dca0;
     }
 
-    .countdown-timer-small { font-size:0.8rem; color:#fdf7ec; margin-top:2px; }
+    .countdown-timer-small { font-size:0.82rem; color:#fdf7ec; margin-top:2px; }
 
     .venue-directions-btn {
       margin-top: 10px;
@@ -369,19 +374,19 @@
     }
     .venue-directions-btn:hover {
       transform:translateY(-1px);
-      box-shadow:0 4px 12px rgba(99,50,22,0.8);
+      box-shadow:0 4px 12px rgba(99,50,22,0.85);
     }
 
     .chief-guest-strip {
-      margin-top: 16px;
+      margin-top: 18px;
       padding: 10px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(248,220,160,0.8);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      border: 1px solid rgba(248,220,160,0.85);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.7);
       background: radial-gradient(
         circle at 50% 0%,
-        rgba(248,220,160,0.35),
-        rgba(60,0,8,0.4)
+        rgba(248,220,160,0.4),
+        rgba(60,0,8,0.5)
       );
     }
 
@@ -401,93 +406,74 @@
     }
 
     .chief-guest-title-line {
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       color: #f3e7d5;
       margin-top: 2px;
     }
 
     .blessings {
       font-style: italic;
-      font-size: 0.82rem;
+      font-size: 0.83rem;
       color: #f8dca0;
-      margin-top: 18px;
-      margin-bottom: 4px;
+      margin-top: 19px;
+      margin-bottom: 5px;
     }
 
     .parents {
-      font-size: 0.92rem;
+      font-size: 0.93rem;
       font-weight: 600;
       color: #fdf7ec;
       line-height: 1.8;
       margin-bottom: 20px;
     }
 
-    .footer-hearts { margin-top:18px; color:#f8dca0; font-size:0.9rem; letter-spacing:4px; }
+    .footer-hearts { margin-top:18px; color:#f8dca0; font-size:0.95rem; letter-spacing:4px; }
 
     @media (max-width:480px) {
-      .couple-names { font-size:2.6rem; }
+      .couple-names { font-size:2.7rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating doodles: mix of up–down and sideways -->
+  <!-- Floating doodles with pigeons, bells, trees, Santa & reindeer [web:310][web:304][web:307] -->
   <div class="doodle-bg">
-    <div class="floater float-ud" style="left:8%;top:18%;font-size:2rem;color:#f8dca0;">
-      <span class="pigeon-wings">✶</span>
+    <!-- Pigeons (love/peace) -->
+    <div class="floater float-ud" style="left:10%;top:20%;font-size:1.8rem;color:#f8dca0;">
+      <span class="pigeon-wings">🕊️</span>
     </div>
-    <div class="floater float-xy" style="left:72%;top:28%;font-size:1.6rem;color:#c47c3b;">
-      <span class="pigeon-wings">✶</span>
+    <div class="floater float-xy" style="left:75%;top:18%;font-size:1.6rem;color:#f8dca0;">
+      <span class="pigeon-wings">🕊️</span>
     </div>
-    <div class="floater float-ud" style="left:40%;top:15%;font-size:2.2rem;color:#f8dca0;">
-      <span class="pigeon-wings">✶</span>
-    </div>
-    <div class="floater float-xy" style="left:20%;top:60%;font-size:1.8rem;color:#c47c3b;">✦</div>
-    <div class="floater float-ud" style="left:60%;top:65%;font-size:1.4rem;color:#f8dca0;">✦</div>
-    <div class="floater float-xy" style="left:85%;top:55%;font-size:1.8rem;color:#c47c3b;">✦</div>
-    <div class="floater float-ud" style="left:30%;top:80%;font-size:1.5rem;color:#f8dca0;">✦</div>
-    <div class="floater float-xy" style="left:50%;top:75%;font-size:1.4rem;color:#c47c3b;">✦</div>
-    <div class="floater float-ud" style="left:15%;top:40%;font-size:1rem;color:#f8dca0;">✧</div>
-    <div class="floater float-xy" style="left:78%;top:45%;font-size:1.2rem;color:#c47c3b;">✧</div>
+
+    <!-- Church bells -->
+    <div class="floater float-xy" style="left:22%;top:60%;font-size:1.5rem;color:#f8dca0;">🔔</div>
+    <div class="floater float-ud" style="left:70%;top:65%;font-size:1.4rem;color:#c47c3b;">🔔</div>
+
+    <!-- Christmas trees & stars -->
+    <div class="floater float-ud" style="left:40%;top:12%;font-size:1.7rem;color:#f8dca0;">🎄</div>
+    <div class="floater float-xy" style="left:55%;top:80%;font-size:1.4rem;color:#f8dca0;">⭐</div>
+
+    <!-- Santa + reindeer silhouette -->
+    <div class="floater float-xy" style="left:18%;top:40%;font-size:1.5rem;color:#fdf7ec;">🎅🦌</div>
+    <div class="floater float-ud" style="left:82%;top:45%;font-size:1.3rem;color:#fdf7ec;">🛷</div>
+
+    <!-- Extra tiny sparkles -->
+    <div class="floater float-ud" style="left:30%;top:72%;font-size:1rem;color:#f8dca0;">✧</div>
+    <div class="floater float-xy" style="left:88%;top:30%;font-size:1.1rem;color:#c47c3b;">✦</div>
   </div>
 
-  <!-- Corner SVGs -->
-  <svg class="corner corner-top-left" width="80" height="50" viewBox="0 0 80 50">
-    <circle cx="20" cy="25" r="18" fill="none" stroke="#a64a36" stroke-width="3"/>
-    <circle cx="42" cy="25" r="18" fill="none" stroke="#c47c3b" stroke-width="3"/>
-  </svg>
-  <svg class="corner corner-top-right" width="80" height="50" viewBox="0 0 80 50">
-    <circle cx="20" cy="25" r="18" fill="none" stroke="#a64a36" stroke-width="3"/>
-    <circle cx="42" cy="25" r="18" fill="none" stroke="#c47c3b" stroke-width="3"/>
-  </svg>
-  <svg class="corner corner-bottom-left" width="60" height="60" viewBox="0 0 60 60">
-    <circle cx="30" cy="30" r="10" fill="#f8dca0"/>
-    <circle cx="44" cy="20" r="10" fill="#c47c3b"/>
-    <circle cx="44" cy="40" r="10" fill="#c47c3b"/>
-    <circle cx="16" cy="20" r="10" fill="#c47c3b"/>
-    <circle cx="16" cy="40" r="10" fill="#c47c3b"/>
-    <circle cx="30" cy="30" r="7" fill="#3a0f19"/>
-  </svg>
-  <svg class="corner corner-bottom-right" width="60" height="60" viewBox="0 0 60 60">
-    <circle cx="30" cy="30" r="10" fill="#f8dca0"/>
-    <circle cx="44" cy="20" r="10" fill="#c47c3b"/>
-    <circle cx="44" cy="40" r="10" fill="#c47c3b"/>
-    <circle cx="16" cy="20" r="10" fill="#c47c3b"/>
-    <circle cx="16" cy="40" r="10" fill="#c47c3b"/>
-    <circle cx="30" cy="30" r="7" fill="#3a0f19"/>
-  </svg>
-
-  <!-- Screen 1 -->
+  <!-- Screen 1: Welcome -->
   <div class="screen-main" id="screen-main">
     <p class="tagline-top">✦ You Are Cordially Invited ✦</p>
     <h1 class="main-title">Indupallis<br/>Invitation</h1>
     <div class="rings-doodle">💍 💍</div>
     <button class="invite-btn" id="openInviteBtn">💌 Open Invitation</button>
     <div class="bells">🔔 🔔</div>
-    <p class="tagline-bottom">A celebration of love &amp; new beginnings</p>
+    <p class="tagline-bottom">Royal colors, warm hearts &amp; a surprise second page</p>
   </div>
 
-  <!-- Screen 2: engagement details directly on maroon -->
+  <!-- Screen 2: Engagement -->
   <div class="screen-invite" id="screen-invite">
     <div class="content-invite">
       <div class="invite-inner">
