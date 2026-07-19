@@ -16,10 +16,10 @@
     * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
     html, body { height: 100%; }
 
-    /* Default: royal cream welcome */
+    /* First view: royal cream */
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #fdf7ec 0%, #f5eee6 40%, #f0e4d6 100%);
+      background: linear-gradient(180deg, #fdf7ec 0%, #f5eee6 45%, #f0e4d6 100%);
       min-height: 100vh;
       min-height: 100dvh;
       display: flex;
@@ -34,21 +34,21 @@
       color:#2a1a16;
     }
 
-    /* Engagement view: deeper royal maroon/navy with gold [web:302][web:305][web:308][web:311] */
+    /* Second view: royal maroon + navy + gold [web:326][web:331][web:334] */
     body.dark-mode {
-      background: radial-gradient(circle at 15% 0%, #f8dca0 0%, #3C0008 35%, #1b2038 100%);
+      background: radial-gradient(circle at 15% 0%, #f8dca0 0%, #3C0008 40%, #1b2038 100%);
       background-size: 200% 200%;
-      animation: maroonNavyGradient 32s ease-in-out infinite;
+      animation: royalGradient 32s ease-in-out infinite;
       color:#fdf7ec;
     }
 
-    @keyframes maroonNavyGradient {
+    @keyframes royalGradient {
       0%   { background-position: 0% 0%; }
       50%  { background-position: 100% 50%; }
       100% { background-position: 0% 0%; }
     }
 
-    /* Floating doodles layer (shared) */
+    /* Reverse-rain doodles (shared) [web:316][web:332][web:313] */
     .doodle-bg {
       position:fixed;
       top:0;
@@ -64,32 +64,21 @@
       opacity:0.35;
     }
 
-    .float-ud {
-      animation: floatUpDown 10s ease-in-out infinite;
+    @keyframes reverseRain {
+      0%   { transform: translateY(40vh); }
+      100% { transform: translateY(-40vh); }
     }
 
-    .float-xy {
-      animation: floatUpDownSide 14s ease-in-out infinite;
+    .float-rain-slow {
+      animation: reverseRain 20s linear infinite;
     }
 
-    @keyframes floatUpDown {
-      0%   { transform: translateY(0) scale(1); }
-      50%  { transform: translateY(-22px) scale(1.05); }
-      100% { transform: translateY(0) scale(1); }
-    }
-
-    @keyframes floatUpDownSide {
-      0%   { transform: translate(0, 0) scale(1); }
-      25%  { transform: translate(10px, -16px) scale(1.03); }
-      50%  { transform: translate(0, -26px) scale(1.06); }
-      75%  { transform: translate(-10px, -16px) scale(1.03); }
-      100% { transform: translate(0, 0) scale(1); }
+    .float-rain-fast {
+      animation: reverseRain 13s linear infinite;
     }
 
     @keyframes flapWings { 0%,100%{transform:scaleY(1);} 50%{transform:scaleY(0.6);} }
     .pigeon-wings { display:inline-block; animation: flapWings 0.7s ease-in-out infinite; transform-origin:center; }
-
-    /* No corner doodles – cleaner edge */
 
     /* Screens */
     .screen-main,
@@ -115,7 +104,7 @@
       display:none;
     }
 
-    /* Welcome screen (first view) – lighter royal feel */
+    /* First view: lighter royal colors */
     .tagline-top {
       font-size:clamp(0.85rem,3.5vw,1rem);
       color:#8b3b2a;
@@ -188,7 +177,7 @@
     }
     @keyframes swing { 0%,100%{transform:rotate(-10deg);} 50%{transform:rotate(10deg);} }
 
-    /* Engagement view (second) – deeper royal look */
+    /* Second view: deeper royal */
     .content-invite {
       width:100%;
       max-width:560px;
@@ -277,6 +266,15 @@
     }
 
     .heart-small { color:#f8dca0; font-size:1.1rem; margin:10px 0; }
+
+    .our-story {
+      margin-top: 12px;
+      margin-bottom: 20px;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: #f3e7d5;
+      font-style: italic;
+    } /* short but meaningful story [web:317][web:260][web:318] */
 
     .cheers-msg {
       font-size: 0.9rem;
@@ -436,31 +434,29 @@
 </head>
 <body>
 
-  <!-- Floating doodles with pigeons, bells, trees, Santa & reindeer [web:310][web:304][web:307] -->
+  <!-- Reverse-rain doodles (shared for both views) [web:316][web:332][web:310][web:304][web:307] -->
   <div class="doodle-bg">
-    <!-- Pigeons (love/peace) -->
-    <div class="floater float-ud" style="left:10%;top:20%;font-size:1.8rem;color:#f8dca0;">
+    <!-- pigeons -->
+    <div class="floater float-rain-slow" style="left:12%;top:60%;font-size:1.8rem;color:#f8dca0;">
       <span class="pigeon-wings">🕊️</span>
     </div>
-    <div class="floater float-xy" style="left:75%;top:18%;font-size:1.6rem;color:#f8dca0;">
+    <div class="floater float-rain-fast" style="left:78%;top:65%;font-size:1.6rem;color:#fdf7ec;">
       <span class="pigeon-wings">🕊️</span>
     </div>
 
-    <!-- Church bells -->
-    <div class="floater float-xy" style="left:22%;top:60%;font-size:1.5rem;color:#f8dca0;">🔔</div>
-    <div class="floater float-ud" style="left:70%;top:65%;font-size:1.4rem;color:#c47c3b;">🔔</div>
+    <!-- bells -->
+    <div class="floater float-rain-slow" style="left:24%;top:70%;font-size:1.5rem;color:#f8dca0;">🔔</div>
+    <div class="floater float-rain-fast" style="left:66%;top:75%;font-size:1.4rem;color:#c47c3b;">🔔</div>
 
-    <!-- Christmas trees & stars -->
-    <div class="floater float-ud" style="left:40%;top:12%;font-size:1.7rem;color:#f8dca0;">🎄</div>
-    <div class="floater float-xy" style="left:55%;top:80%;font-size:1.4rem;color:#f8dca0;">⭐</div>
+    <!-- tree / star / santa -->
+    <div class="floater float-rain-slow" style="left:40%;top:78%;font-size:1.7rem;color:#f8dca0;">🎄</div>
+    <div class="floater float-rain-fast" style="left:55%;top:82%;font-size:1.4rem;color:#f8dca0;">⭐</div>
+    <div class="floater float-rain-slow" style="left:20%;top:85%;font-size:1.5rem;color:#fdf7ec;">🎅🦌</div>
+    <div class="floater float-rain-fast" style="left:84%;top:88%;font-size:1.3rem;color:#fdf7ec;">🛷</div>
 
-    <!-- Santa + reindeer silhouette -->
-    <div class="floater float-xy" style="left:18%;top:40%;font-size:1.5rem;color:#fdf7ec;">🎅🦌</div>
-    <div class="floater float-ud" style="left:82%;top:45%;font-size:1.3rem;color:#fdf7ec;">🛷</div>
-
-    <!-- Extra tiny sparkles -->
-    <div class="floater float-ud" style="left:30%;top:72%;font-size:1rem;color:#f8dca0;">✧</div>
-    <div class="floater float-xy" style="left:88%;top:30%;font-size:1.1rem;color:#c47c3b;">✦</div>
+    <!-- tiny sparkles -->
+    <div class="floater float-rain-slow" style="left:32%;top:68%;font-size:1rem;color:#f8dca0;">✧</div>
+    <div class="floater float-rain-fast" style="left:90%;top:72%;font-size:1.1rem;color:#c47c3b;">✦</div>
   </div>
 
   <!-- Screen 1: Welcome -->
@@ -498,6 +494,16 @@
         </div>
 
         <div class="heart-small">♥</div>
+
+        <!-- Our story section -->
+        <p class="our-story">
+          Our story began with a simple hello that turned into shared laughs,
+          long conversations and a beautiful journey we never expected. From
+          that first meeting to this special day, every step brought us closer
+          to forever. Today, as we celebrate our engagement, we are grateful
+          for the love God has written into our lives — and so happy to have
+          you as part of this journey toward forever.
+        </p>
 
         <p class="cheers-msg">
           With hearts full of love and gratitude, we invite you to join us in
